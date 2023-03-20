@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+        <!DOCTYPE mapper
+                PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+                "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="feedComments">
+
+	<sql id="setFeedCommentsNumber" >
+		SELECT CONCAT('FEEDCOMMENTS',
+		NVL(MAX(SUBSTR(FEED_COMMENTS_NUMBER,13)),100000)+ 1) FROM FEED_COMMENTS
+	</sql>
+	
+	<insert id="registFeedComments">
+		INSERT INTO FEED_COMMENTS
+		VALUES ((<include refid="setFeedCommentsNumber"/>), #{feedNumber}, #{peopleId}, #{feedCommentsContent}, SYSDATE)
+	</insert>
+	
+	<select id="getFeedCommentsList" parameterType="map" resultType="Talan.DTO.FeedCommentsDTO">
+		SELECT * FROM FEED_COMMENTS 
+		WHERE FEED_NUMBER = #{feedNumber}
+		ORDER BY FEED_COMMENTS_NUMBER
+	</select>
+	
+	<delete id="deleteFeedComment">
+		<if test="peopleId == 'admin'">
+			DELETE FROM FEED_COMMENTS WHERE FEED_COMMENTS_NUMBER = #{feedCommentsNumber}
+		</if>
+		DELETE FROM FEED_COMMENTS WHERE FEED_COMMENTS_NUMBER = #{feedCommentsNumber} AND PEOPLE_ID = #{peopleId}
+
+	</delete>
+	
+	<select id="getPopularFeed" resultType="String">
+		SELECT FEED_NUMBER 
+		FROM (SELECT ROWNUM, FEED_NUMBER 
+				FROM (SELECT FEED_NUMBER, COUNT(FEED_NUMBER)
+			     	  FROM FEED_COMMENTS 
+					  GROUP BY(FEED_NUMBER) 
+					  ORDER BY COUNT(FEED_NUMBER) DESC)
+				WHERE ROWNUM <![CDATA[<]]> 4)
+	</select>
+	
+	<select id="getCommentsCount" parameterType="String" resultType="Integer">
+		SELECT COUNT(FEED_NUMBER) FROM FEED_COMMENTS WHERE FEED_NUMBER = #{feedNumber}
+	</select>
+	
+</mapper>

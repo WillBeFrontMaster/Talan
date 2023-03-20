@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0,user-scalable=false, viewport-fit=cover">
+    <title>TALAN</title>
+    <link rel="stylesheet" href="../../css/morpheus-style.css"/>
+    <link rel="stylesheet" href="../../css/swiper.min.css"/>
+    <link rel="stylesheet" href="../../css/muikit.css"/>
+</head>
+
+<body>
+
+<header class="header line">
+    <!-- 헤더 입력 영역 (헤더 디자인에 따라 바꿔치기 가능) -->
+    <!-- 하단에 라인이 있는경우 class="line"추가 -->
+    <h1 class="logo">
+        TALAN
+    </h1>
+    <button type="button" class="btn-menu r-fix">
+        메뉴
+        <!-- 왼쪽 버튼 class="l-fix" 추가 -->
+        <!-- 오른쪽 버튼 class="r-fix" 추가 -->
+    </button>
+
+    <button type="button" class="btn-back l-fix">
+        뒤로가기
+    </button>
+</header>
+<!-- 상단바 -->
+<div class="feed-body container">
+    <div class="feed-title">
+        <!--                제목제목제목제목-->
+    </div>
+    <div class="divider"></div>
+    <div class="feed-info">
+        <div id="feed-writer-image">
+            <img class="feed-link" src="../../img/profile-image.png">
+        </div>
+        <div class="feed-info-detail">
+            <div class="feed-writer"></div>
+            <div class="feed-write-date"></div>
+        </div>
+    </div>
+    <div class="feed-content">
+        <div class="feed-text">
+            <!--                    헌법개정안이 제2항의 찬성을 얻은 때에는 헌법개정은 확정되며, 대통령은 즉시 이를 공포하여야 한다. 국회에 제출된 법률안 기타의 의안은 회기중에 의결되지 못한 이유로 폐기되지-->
+            <!--                    아니한다. 다만, 국회의원의 임기가 만료된 때에는 그러하지 아니하다. 국가안전보장회의의 조직·직무범위 기타 필요한 사항은 법률로 정한다.-->
+            <!--                    대통령이 궐위된 때 또는 대통령 당선자가 사망하거나 판결 기타의 사유로 그 자격을 상실한 때에는 60일 이내에 후임자를 선거한다. 공공필요에 의한 재산권의 수용·사용 또는 제한 및-->
+            <!--                    그에 대한 보상은 법률로써 하되, 정당한 보상을 지급하여야 한다. 모든 국민은 보건에 관하여 국가의 보호를 받는다.-->
+            <!--                    대통령은 내우·외환·천재·지변 또는 중대한 재정·경제상의 위기에 있어서 국가의 안전보장 또는 공공의 안녕질서를 유지하기 위하여 긴급한 조치가 필요하고 국회의 집회를 기다릴 여유가-->
+            <!--                    없을 때에 한하여 최소한으로 필요한 재정·경제상의 처분을 하거나 이에 관하여 법률의 효력을 가지는 명령을 발할 수 있다.-->
+        </div>
+        <div id="feed-image">
+            <img src="../../img/pro-feed-image.png">
+        </div>
+    </div>
+
+    <div class="divider mg-t30"></div>
+    <div id="comment-list">
+        <!--                <ul>-->
+        <!--                    <li>-->
+        <!--                        <div class="comment-writer-info">-->
+        <!--                            <div class="comment-writer">김people</div>-->
+        <!--                            <div class="comment-write-date">2022.04.07 <span class="delete-comment">X</span></div>-->
+        <!--                        </div>-->
+        <!--                    </li>-->
+        <!--                    <li >-->
+        <!--                        게시글 잘 보고 갑니다. 제 블로그 놀러오셔서 자격증 정보 알아가세요.-->
+        <!--                    </li>-->
+        <!--                </ul>-->
+        <!--                <div class="divider" style="width:100%;margin:0.3rem 0"></div>-->
+        <!--                <ul>-->
+        <!--                    <li>-->
+        <!--                        <div class="comment-writer-info">-->
+        <!--                            <div class="comment-writer">바게트</div>-->
+        <!--                            <div class="comment-write-date">2022.04.08 <span class="delete-comment">X</span></div>-->
+        <!--                        </div>-->
+        <!--                    </li>-->
+        <!--                    <li>-->
+        <!--                        비밀 댓글입니다.-->
+        <!--                    </li>-->
+        <!--                </ul>-->
+    </div>
+    <div class="comment-write">
+        <div class="comment-inbox">
+            <textarea placeholder="답변을 남겨보세요." id="comment-content" rows="2" class="comment-inbox-text"></textarea>
+            <button type="button" id="comment-submit" class="btn-line">등록</button>
+        </div>
+    </div>
+
+    <!--본인의 피드일 때 버튼 띄움-->
+    <div id="is-my-feed" class="btn-wrap count2 pd">
+        <button type="button" id="update" class="btn-line">
+            수정하기
+        </button>
+        <button type="button" id="delete" class="btn-line">
+            삭제하기
+        </button>
+    </div>
+</div>
+<!-- 하단바 -->
+<div class="footer">
+    <!-- 푸터 영역 (푸터 디자인에 따라 바꿔치기 가능) -->
+    <ul class="foot-menu-wrap">
+        <li id="request-btn">
+            <img src="../../img/pictogram/list.png" alt="요청/견적">
+            <br/>
+            요청/견적
+        </li>
+        <li id="message-btn">
+            <img src="../../img/pictogram/chat.png" alt="메시지">
+            <br/>
+            메시지
+        </li>
+        <li id="home-btn">
+            <img src="../../img/pictogram/home.png" alt="홈">
+            <br/>
+            홈
+        </li>
+        <li id="inquire-btn">
+            <img src="../../img/pictogram/search.png" alt="고수찾기">
+            <br/>
+            문의
+        </li>
+        <li id="my-page-btn">
+            <img src="../../img/pictogram/people.png" alt="마이페이지">
+            <br/>
+            마이페이지
+        </li>
+    </ul>
+</div>
+</body>
+<script type="text/javascript" src="../../js/mcore.min.js"></script>
+<!-- 뒤로가기 홈버튼 등 기본 동작에 대한 js 파일-->
+<script type="text/javascript" src="../../js/ui/common.event.js"></script>
+<!--<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>-->
+<!-- 페이지마다 만든 js 파일 여기에 추가해주기-->
+<script type="text/javascript" src="../../js/ui/pro/feedDetail.js"></script>
+
+</html>

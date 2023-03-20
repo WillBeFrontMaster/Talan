@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, height=device-height, initial-scale=1.0,user-scalable=false, viewport-fit=cover">
+    <title>TALAN</title>
+    <link rel="stylesheet" href="../../css/morpheus-style.css"/>
+    <link rel="stylesheet" href="../../css/swiper.min.css"/>
+    <link rel="stylesheet" href="../../css/muikit.css"/>
+    <link rel="stylesheet" href="../../css/ui/requestlist.css">
+</head>
+
+<body>
+<div class="wrapper h100per">
+    <header class="header">
+        <!-- 헤더 입력 영역 (헤더 디자인에 따라 바꿔치기 가능) -->
+        <!-- 하단에 라인이 있는경우 class="line"추가 -->
+        <select class="h1 center mg30" id="category">
+            <option value="">선택</option>
+            <option value="lesson">레슨</option>
+            <option value="home">홈/리빙</option>
+            <option value="event">이벤트</option>
+            <option value="business">비즈니스</option>
+            <option value="design">디자인/개발</option>
+            <option value="health">건강/미용</option>
+            <option value="part-time-job">아르바이트</option>
+            <option value="etc">기타</option>
+        </select>
+        <img src="../../img/ico-write.png" id="write-btn" class="write-btn r-fix"/>
+        <button type="button" class="btn-back l-fix">
+            뒤로가기
+        </button>
+    </header>
+    <!-- 상단바 -->
+    <div class="wrapper mg50" style="height:100%">
+        <ul id="request-list" class="boarding">
+            <!--        <ul id="request-list" class="boarding">-->
+            <!--            <li class="div-card">-->
+            <!--              <div class="head-box">-->
+            <!--                  <h3 class="card-title">행사 MC 섭외</h3>-->
+            <!--                  <p class="card-day">2022.04.10</p>-->
+            <!--              </div>-->
+            <!--              <div class="card-body">-->
+            <!--                  <div class="estimate-info">-->
+            <!--                  <p><span>억이</span> 님의 요청서</p>-->
+            <!--                  <p class="estimate-title">어머님 칠순 잔치 행사 MC섭외합니다.</p>-->
+            <!--                  </div>-->
+            <!--              </div>-->
+            <!--          </li>-->
+            <!--          <ul id="request-list" class="boarding">-->
+            <!--            <li class="div-card">-->
+            <!--              <div class="head-box">-->
+            <!--                  <h3 class="card-title">파티 기획자 섭외</h3>-->
+            <!--                  <p class="card-day">2022.04.08</p>-->
+            <!--              </div>-->
+            <!--              <div class="card-body">-->
+            <!--                  <div class="estimate-info">-->
+            <!--                  <p><span>션이</span> 님의 요청서</p>-->
+            <!--                  <p class="estimate-title">브라이덜 샤워 깜짝파티 기획자님 섭외합니다.</p>-->
+            <!--                  </div>-->
+            <!--              </div>-->
+            <!--          </li>-->
+            <!--          <ul id="request-list" class="boarding">-->
+            <!--            <li class="div-card">-->
+            <!--              <div class="head-box">-->
+            <!--                  <h3 class="card-title">결혼식 사회자 섭외</h3>-->
+            <!--                  <p class="card-day">2022.04.07</p>-->
+            <!--              </div>-->
+            <!--              <div class="card-body">-->
+            <!--                  <div class="estimate-info">-->
+            <!--                  <p><span>김다미</span> 님의 요청서</p>-->
+            <!--                  <p class="estimate-title">센스있는 사회자님 섭외합니다.</p>-->
+            <!--                  </div>-->
+            <!--              </div>-->
+            <!--          </li>-->
+            <!--          <ul id="request-list" class="boarding">-->
+            <!--            <li class="div-card">-->
+            <!--              <div class="head-box">-->
+            <!--                  <h3 class="card-title">댄스팀 섭외</h3>-->
+            <!--                  <p class="card-day">2022.04.07</p>-->
+            <!--              </div>-->
+            <!--              <div class="card-body">-->
+            <!--                  <div class="estimate-info">-->
+            <!--                  <p><span>비지찌개</span> 님의 요청서</p>-->
+            <!--                  <p class="estimate-title">OO대학교 축제 공연하실 댄스팀 섭외합니다.</p>-->
+            <!--                  </div>-->
+            <!--              </div>-->
+            <!--          </li>-->
+            <!--          <ul id="request-list" class="boarding">-->
+            <!--            <li class="div-card">-->
+            <!--              <div class="head-box">-->
+            <!--                  <h3 class="card-title">제사 음식 대행</h3>-->
+            <!--                  <p class="card-day">2022.04.01</p>-->
+            <!--              </div>-->
+            <!--              <div class="card-body">-->
+            <!--                  <div class="estimate-info">-->
+            <!--                  <p><span>프루팁스</span> 님의 요청서</p>-->
+            <!--                  <p class="estimate-title"><급구>간단한 제사상 차려주실 고수님 섭외합니다.</p>-->
+            <!--                  </div>-->
+            <!--              </div>-->
+            <!--          </li>-->
+            <!--          <ul id="request-list" class="boarding">-->
+            <!--            <li class="div-card">-->
+            <!--              <div class="head-box">-->
+            <!--                  <h3 class="card-title">NFT 강연자 섭외합니다.</h3>-->
+            <!--                  <p class="card-day">2022.03.29</p>-->
+            <!--              </div>-->
+            <!--              <div class="card-body">-->
+            <!--                  <div class="estimate-info">-->
+            <!--                  <p><span>도와주세요</span> 님의 요청서</p>-->
+            <!--                  <p class="estimate-title">송도 컨벤시아에서 진행하는 NFT관련 강의 강연자 섭외합니다.</p>-->
+            <!--                  </div>-->
+            <!--              </div>-->
+            <!--          </li>-->
+            <!--    -->
+
+        </ul>
+    </div>
+    <!-- 하단바 -->
+    <div class="footer">
+        <!-- 푸터 영역 (푸터 디자인에 따라 바꿔치기 가능) -->
+        <ul class="foot-menu-wrap">
+            <li id="request-btn">
+                <img src="../../img/pictogram/list.png" alt="요청/견적">
+                <br/>
+                요청/견적
+            </li>
+            <li id="message-btn">
+                <img src="../../img/pictogram/chat.png" alt="메시지">
+                <br/>
+                메시지
+            </li>
+            <li id="home-btn">
+                <img src="../../img/pictogram/home.png" alt="홈">
+                <br/>
+                홈
+            </li>
+            <li id="inquire-btn">
+                <img src="../../img/pictogram/search.png" alt="고수찾기">
+                <br/>
+                문의
+            </li>
+            <li id="my-page-btn">
+                <img src="../../img/pictogram/people.png" alt="마이페이지">
+                <br/>
+                마이페이지
+            </li>
+        </ul>
+    </div>
+</div>
+</body>
+<script type="text/javascript" src="../../js/mcore.min.js"></script>
+<!-- 뒤로가기 홈버튼 등 기본 동작에 대한 js 파일-->
+<script type="text/javascript" src="../../js/ui/common.event.js"></script>
+<!-- 페이지마다 만든 js 파일 여기에 추가해주기-->
+<script type="text/javascript" src="../../js/ui/pro/requestList.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</html>

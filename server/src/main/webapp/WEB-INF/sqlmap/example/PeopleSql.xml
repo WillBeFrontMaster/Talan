@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+        <!DOCTYPE mapper
+                PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+                "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="people">
+
+	<select id="getPeopleInfo" parameterType="map" resultType="Talan.DTO.PeopleDTO">
+		SELECT *
+		FROM   PEOPLE
+		WHERE PEOPLE_ID = #{peopleId}
+		
+	</select>
+	
+	<select id="getNickname" parameterType="String" resultType="String">
+		SELECT NICKNAME FROM PEOPLE WHERE PEOPLE_ID = #{peopleId}
+	</select>
+
+	
+	<insert id="insertPeople">
+		INSERT INTO PEOPLE (PEOPLE_ID, PASSWORD, NAME, BIRTH, NICKNAME, ADDRESS, PHONE, INTRO, GENDER, EMAIL, ACCOUNT)
+		VALUES
+	    	( #{peopleId}, #{password}, #{name}, #{birth}, #{nickname}, #{address}, #{phone}, #{intro}, #{gender}, #{email},
+	    	 #{account})
+	</insert>
+	
+	<insert id="insertPeopleWithImage">
+		INSERT INTO PEOPLE(PEOPLE_ID, PASSWORD, NAME, BIRTH, NICKNAME, ADDRESS, PHONE, INTRO, GENDER, EMAIL, ACCOUNT, STORE_IMAGE_NAME, ORIGIN_IMAGE_NAME, IMAGE_PATH) 
+		VALUES (#{peopleId}, #{password}, #{name}, #{birth}, #{nickname}, #{address}, #{phone}, #{intro}, #{gender}, #{email},
+	    	 #{account}, #{storeImageName}, #{originImageName}, #{imagePath})
+	</insert>
+	
+	<update id="updateIntro">
+		UPDATE PEOPLE
+		SET	INTRO = #{intro}
+		WHERE PEOPLE_ID = #{peopleId}
+	</update>
+	
+	<update id="updatePeople">
+		UPDATE PEOPLE
+		SET	NAME = #{name}, BIRTH = #{birth}, NICKNAME = #{nickname}, ADDRESS = #{address}, PHONE = #{phone}, EMAIL = #{email}, ACCOUNT = #{account}
+		WHERE PEOPLE_ID = #{peopleId}
+	</update>
+	
+	<delete id="deletePeople">
+		DELETE FROM PEOPLE
+		WHERE  PEOPLE_ID = #{id}
+	</delete>
+	
+	<select id="findId" parameterType="map" resultType="string">
+		SELECT PEOPLE_ID
+		FROM PEOPLE
+		WHERE NAME = #{name} and EMAIL = #{email}
+	</select>
+
+	<select id="isPeople" parameterType="map" resultType="Talan.DTO.PeopleDTO">
+		SELECT *
+		FROM PEOPLE
+		WHERE PEOPLE_ID = #{peopleId} and NAME = #{name} and EMAIL = #{email}
+	</select>
+	
+	<update id="changePWD">
+		UPDATE PEOPLE
+		SET PASSWORD = #{password}
+		WHERE PEOPLE_ID = #{peopleId}
+	</update>
+	
+	<select id="duplicatePeople1" resultType="String">
+		SELECT PEOPLE_ID
+		FROM PEOPLE
+		WHERE PEOPLE_ID = #{peopleId}
+	</select>
+	
+	<select id="duplicatePeople2" resultType="String">
+		SELECT EMAIL
+		FROM PEOPLE
+		WHERE EMAIL = #{email}
+	</select>
+	
+	<select id="duplicatePeople3" resultType="String">
+		SELECT NICKNAME
+		FROM PEOPLE
+		WHERE NICKNAME = #{nickname}
+	</select>
+	
+	<update id="updateProfileImage">
+		UPDATE PEOPLE
+		SET STORE_IMAGE_NAME = #{storeImageName},
+			ORIGIN_IMAGE_NAME = #{originImageName},
+			IMAGE_PATH = #{imagePath}
+		WHERE PEOPLE_ID = #{peopleId}
+	</update>
+
+	
+</mapper>

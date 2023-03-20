@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--내가 쓴 요청서 목록-->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0,user-scalable=false, viewport-fit=cover">
+    <title>TALAN</title>
+    <link rel="stylesheet" href="../../css/morpheus-style.css" />
+    <link rel="stylesheet" href="../../css/swiper.min.css" />
+    <link rel="stylesheet" href="../../css/muikit.css" />
+    <link rel="stylesheet" href="../../css/ui/requestlist.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <header class="header">
+            <!-- 헤더 입력 영역 (헤더 디자인에 따라 바꿔치기 가능) -->
+            <!-- 하단에 라인이 있는경우 class="line"추가 -->
+            <h1>
+                내 요청서 목록
+            </h1>
+            <button type="button" class="btn-menu r-fix">
+                메뉴
+                <!-- 왼쪽 버튼 class="l-fix" 추가 -->
+                <!-- 오른쪽 버튼 class="r-fix" 추가 -->
+            </button>
+            <button type="button" class="btn-back l-fix">
+                뒤로가기
+            </button>
+        </header>
+        <!-- 상단바 -->
+        <div class="wrapper mg50">
+            <ul id="request-list" class="boarding">
+                <!-- <li class="div-card">
+                <div class="head-box">
+                    <h3 class="card-title">방송댄스 배우고 싶어요 </h3>
+                    <p class="card-day">2022.04.12</p>
+                </div>
+                <div class="card-body">
+                    <div class="estimate-info">
+                    <p><span>소담</span>님의 요청서</p>
+                    <div class="decline-btn-wrap">    
+                        <button type="button" class="decline-btn" id="decline-btn">마감하기</button>
+                    </div>
+                    <p class="estimate-title">춤을 한 번도 춰본 적이 없어서 기초부터 차근차근...</p>
+                    </div>
+                </div>
+                </li>
+                <li class="div-card">
+                    <div class="head-box">
+                        <h3 class="card-title">일본어 통역해주실 분 구합니다. </h3>
+                        <p class="card-day">2022.04.11</p>
+                    </div>
+                    <div class="card-body">
+                        <div class="estimate-info">
+                        <p><span>소담</span>님의 요청서</p>
+                        <div class="decline-btn-wrap">    
+                            <button type="button" disabled class="declined-btn" id="declined-btn">마감</button>
+                        </div>
+                        <p class="estimate-title">비즈니스 통역이라 전문용어를 좀 숙지하셔야...</p>
+                        </div>
+                    </div>
+                </li>
+                <li class="div-card">
+                    <div class="head-box">
+                        <h3 class="card-title">애플리케이션 광고해주실 분 </h3>
+                        <p class="card-day">2022.04.08</p>
+                    </div>
+                    <div class="card-body">
+                        <div class="estimate-info">
+                        <p><span>소담</span>님의 요청서</p>
+                        <div class="decline-btn-wrap">    
+                            <button type="button" class="decline-btn" id="decline-btn">마감하기</button>
+                        </div>
+                        <p class="estimate-title">쉽게 이목을 끌 수 있는 디자인/영상 제작해주실 분...</p>
+                        </div>
+                    </div>
+                </li> -->
+                <div class="no-received-quotes" style="display:none">
+                    <article class="no-items align-self-center text-center">
+                        <img src="../../img/folder.png"/>
+                        <h3 style="font-weight:700;font-size:2rem">등록된 요청서가 없습니다.</h3>
+                        <p class="help-block p2">
+                            <div class="desc">원하시는 서비스의 요청서를 등록해보세요!</div>
+                        </p>
+                        <!---->
+                    </article>
+                </div>
+            </ul>
+        </div>
+    </div>
+    <!-- 하단바 -->
+    <div class="footer">
+        <!-- 푸터 영역 (푸터 디자인에 따라 바꿔치기 가능) -->
+        <ul class="foot-menu-wrap">
+            <li id="request-btn">
+                <img src="../../img/pictogram/list.png" alt="요청/견적">
+                <br />
+                요청/견적
+            </li>
+            <li id="message-btn">
+                <img src="../../img/pictogram/chat.png" alt="메시지">
+                <br />
+                메시지
+            </li>
+            <li id="home-btn">
+                <img src="../../img/pictogram/home.png" alt="홈">
+                <br />
+                홈
+            </li>
+            <li id="inquire-btn">
+                <img src="../../img/pictogram/search.png" alt="고수찾기">
+                <br />
+                문의
+            </li>
+            <li id="my-page-btn">
+                <img src="../../img/pictogram/people.png" alt="마이페이지">
+                <br />
+                마이페이지
+            </li>
+        </ul>
+    </div>
+</body>
+<script type="text/javascript" src="../../js/mcore.min.js"></script>
+<!-- 뒤로가기 홈버튼 등 기본 동작에 대한 js 파일-->
+<script type="text/javascript" src="../../js/ui/common.event.js"></script>
+<script type="text/javascript" src="../../js/ui/people/requestMyList.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<!-- 페이지마다 만든 js 파일 여기에 추가해주기-->
+
+</html>

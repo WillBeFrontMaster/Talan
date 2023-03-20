@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0,user-scalable=false, viewport-fit=cover">
+    <title>TALAN</title>
+    <link rel="stylesheet" href="../../css/morpheus-style.css" />
+    <link rel="stylesheet" href="../../css/swiper.min.css" />
+    <link rel="stylesheet" href="../../css/muikit.css" />
+</head>
+
+<body>
+
+    <header class="header ">
+        <!-- 헤더 입력 영역 (헤더 디자인에 따라 바꿔치기 가능) -->
+        <!-- 하단에 라인이 있는경우 class="line"추가 -->
+        <h1 class="line">
+            결제 상세 내역
+        </h1>
+        <button type="button" class="btn-back l-fix">
+            뒤로가기
+        </button>
+        </div>
+    </header>
+
+    <!-- 상단바 -->
+    <div class="container">
+
+        <ul class="page-list">
+            <li class="item-container-box">
+                <div class="item-box-top" id="payment-info">
+                    <div class="item-box-l" id="payment-date">2022.04.15</div>
+                    <div class="item-box-r"><span id="payment-number">123456789</span></div>
+                    <p id="payment-status">결제완료</p>
+                </div>
+                <div class="item-box-top" style="background-color:#fff">
+                    <div class="item-box-l2">결제 금액</div>
+                    <div class="item-box-r2" id="payment-type">카드결제</div>
+                    <div class="item-box-r2" id="payment-amount">70,000원</div>
+                </div>
+                <div class="item-box-top" id="payment-detail">
+                    <p>세부내용</p>
+                </div>
+                <div class="item-box-bottom" style="border-bottom: 1px solid #e9e9e9;">
+                    <div class="item-box-title" id="request-title">파티 준비 도와주실 고수님 구합니다.</div>
+                    <div class="item-box-pro" id="request-content">친구 생일 파티 하려는데 센스가 부족해서 어떻게 꾸며야 할 지 모르겠습니다. 센스있는 고수님들의 조언 부탁드립니다.</div>
+                </div>
+                <div class="item-box-bottom">
+                    <div class="item-box-title" id="pro-id">김파티</div>
+                    <div class="item-box-title" id="estimate-title">인상깊은 파티를 원하시나요</div>
+                    <div class="item-box-pro" id="estimate-content">안녕하세요! 이벤트PRO 김파티입니다. 파티플래너로 4년째 근무중이고, 주로 생일파티를 기획했습니다. 원하시는 컨셉이 있으시면 저와 충분히 상담 후 최대한 그 방향에 맞춰드립니다. 채팅 주세요^^
+                    </textarea></div>
+                    <div class="item-box-btm-r">
+                        <div class="item-box-status" id="review-write">
+                            리뷰 작성
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+        </br>
+    </div>
+</body>
+<script type="text/javascript" src="../../js/mcore.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<!-- 뒤로가기 홈버튼 등 기본 동작에 대한 js 파일-->
+<script type="text/javascript" src="../../js/ui/common.event.js"></script>
+<script type="text/javascript" src="../../js/ui/people/paymentDetail.js"></script>
+</html>

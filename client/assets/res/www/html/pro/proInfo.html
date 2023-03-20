@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0,user-scalable=false, viewport-fit=cover">
+    <title>TALAN</title>
+    <link rel="stylesheet" href="../../css/morpheus-style.css"/>
+    <link rel="stylesheet" href="../../css/swiper.min.css"/>
+    <link rel="stylesheet" href="../../css/muikit.css"/>
+</head>
+
+<body>
+<header class="header line">
+    <!-- 헤더 입력 영역 (헤더 디자인에 따라 바꿔치기 가능) -->
+    <!-- 하단에 라인이 있는경우 class="line"추가 -->
+    <h1>
+        <span>김pro</span>님의 프로필
+    </h1>
+    <button type="button" class="btn-back l-fix">
+        뒤로가기
+    </button>
+</header>
+
+<!-- 상단바 -->
+<div class="scroll">
+    <ul class="profile-box">
+        <li class="profile">
+            <img src="../../img/icon-etc.png" class="pro-image-img"/>
+            <div class="people-info-name">
+                김pro
+<!--                <div class="pro-feed-info">-->
+<!--                    &lt;!&ndash;별 반복문 돌려주세여~&ndash;&gt;-->
+<!--                    <img src="../../img/star.png">-->
+<!--                    <img src="../../img/star.png">-->
+<!--                    <img src="../../img/star.png">-->
+<!--                    <img src="../../img/star.png">-->
+<!--                    <img src="../../img/half-star.png">-->
+<!--                    <span>4.5 (99+)</span>-->
+<!--                </div>-->
+            </div>
+
+            <div class="people-info-btn-wrap">
+                <div class="people-info-btn">
+                    <button type="button" id="chatting">채팅하기</button>
+                    <button type="button" id="report">신고하기</button>
+                    <!--관리자한테만 보이게-->
+                    <button type="button" hidden>회원추방</button>
+                </div>
+            </div>
+        </li>
+    </ul>
+    <div class="bline"></div>
+    <ul class="page-list">
+        <li class="item-container">
+            <div class="item">
+                <div class="item-title">한 줄 소개</div>
+                <div class="item-info">
+                    아니 여기... 이거...맞나...?<br>뭐 유니코드라도 줘야되는거 아닌가<br>
+                    이거이.....회원정보 조회에 이렇게 집어넣을 게 없다니
+                </div>
+            </div>
+        </li>
+        <li class="item-container">
+            <div class="item">
+                <div class="item-title">최근 게시글</div>
+                <ul class="metro-wrap" id="list">
+                    <li>
+                        <div class="thumbnail-wrap">
+                            <div class="thumbnail">
+                                <img src="../../img/pro-feed-image.png" alt=""/>
+                            </div>
+                        </div>
+                        <div class="info-box">
+                            <div class="info-box-top">
+                                <strong class="ellipsis_1">
+                                    PRO FEED TITLE
+                                </strong>
+                            </div>
+                            <div class="info-box-btm">
+                                <p style="text-align:left;" class="ellipsis_1">
+                                    PRO FEED CONTENT
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="thumbnail-wrap">
+                            <div class="thumbnail">
+                                <img src="../../img/pro-feed-image.png" alt=""/>
+                            </div>
+                        </div>
+                        <div class="info-box">
+                            <div class="info-box-top">
+                                <strong class="ellipsis_1">
+                                    PRO FEED TITLE
+                                </strong>
+                            </div>
+                            <div class="info-box-btm">
+                                <p style="text-align:left;" class="ellipsis_1">
+                                    PRO FEED CONTENT
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="thumbnail-wrap">
+                            <div class="thumbnail">
+                                <img src="../../img/pro-feed-image.png" alt=""/>
+                            </div>
+                        </div>
+                        <div class="info-box">
+                            <div class="info-box-top">
+                                <strong class="ellipsis_1">
+                                    PRO FEED TITLE
+                                </strong>
+                            </div>
+                            <div class="info-box-btm">
+                                <p style="text-align:left;" class="ellipsis_1">
+                                    PRO FEED CONTENT
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="thumbnail-wrap">
+                            <div class="thumbnail">
+                                <img src="../../img/pro-feed-image.png" alt=""/>
+                            </div>
+                        </div>
+                        <div class="info-box">
+                            <div class="info-box-top">
+                                <strong class="ellipsis_1">
+                                    PRO FEED TITLE
+                                </strong>
+                            </div>
+                            <div class="info-box-btm">
+                                <p style="text-align:left;" class="ellipsis_1">
+                                    PRO FEED CONTENT
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="thumbnail-wrap">
+
+                            <div class="thumbnail">
+                                <img src="../../img/pro-feed-image.png" alt=""/>
+                            </div>
+                        </div>
+                        <div class="info-box">
+                            <div class="info-box-top">
+                                <strong class="ellipsis_1">
+                                    PRO FEED TITLE
+                                </strong>
+                            </div>
+                            <div class="info-box-btm">
+                                <p style="text-align:left;" class="ellipsis_1">
+                                    PRO FEED CONTENT
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="thumbnail-wrap">
+                            <div class="thumbnail">
+                                <img src="../../img/pro-feed-image.png" alt=""/>
+                            </div>
+                        </div>
+                        <div class="info-box">
+                            <div class="info-box-top">
+                                <strong class="ellipsis_1">
+                                    PRO FEED TITLE
+                                </strong>
+                            </div>
+                            <div class="info-box-btm">
+                                <p style="text-align:left;" class="ellipsis_1">
+                                    PRO FEED CONTENT
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="thumbnail-wrap">
+                            <div class="thumbnail">
+                                <img src="../../img/pro-feed-image.png" alt=""/>
+                            </div>
+                        </div>
+                        <div class="info-box">
+                            <div class="info-box-top">
+                                <strong class="ellipsis_1">
+                                    PRO FEED TITLE
+                                </strong>
+                            </div>
+                            <div class="info-box-btm">
+                                <p style="text-align:left;" class="ellipsis_1">
+                                    PRO FEED CONTENT
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="thumbnail-wrap">
+                            <div class="thumbnail">
+                                <img src="../../img/pro-feed-image.png" alt=""/>
+                            </div>
+                        </div>
+                        <div class="info-box">
+                            <div class="info-box-top">
+                                <strong class="ellipsis_1">
+                                    PRO FEED TITLE
+                                </strong>
+                            </div>
+                            <div class="info-box-btm">
+                                <p style="text-align:left;" class="ellipsis_1">
+                                    PRO FEED CONTENT
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </li>
+    </ul>
+</div>
+<!-- 하단바 -->
+<div class="footer">
+    <!-- 푸터 영역 (푸터 디자인에 따라 바꿔치기 가능) -->
+    <ul class="foot-menu-wrap">
+        <li id="request-btn">
+            <img src="../../img/pictogram/list.png" alt="요청/견적">
+            <br />
+            요청/견적
+        </li>
+        <li id="message-btn">
+            <img src="../../img/pictogram/chat.png" alt="메시지">
+            <br />
+            메시지
+        </li>
+        <li id="home-btn">
+            <img src="../../img/pictogram/home.png" alt="홈">
+            <br />
+            홈
+        </li>
+        <li id="inquire-btn">
+            <img src="../../img/pictogram/search.png" alt="고수찾기">
+            <br />
+            문의
+        </li>
+        <li id="my-page-btn">
+            <img src="../../img/pictogram/people.png" alt="마이페이지">
+            <br />
+            마이페이지
+        </li>
+    </ul>
+</div>
+</body>
+<script type="text/javascript" src="../../js/mcore.min.js"></script>
+<!-- 뒤로가기 홈버튼 등 기본 동작에 대한 js 파일-->
+<script type="text/javascript" src="../../js/ui/common.event.js"></script>
+<!-- 페이지마다 만든 js 파일 여기에 추가해주기-->
+<script type="text/javascript" src="../../js/ui/pro/proInfo.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</html>

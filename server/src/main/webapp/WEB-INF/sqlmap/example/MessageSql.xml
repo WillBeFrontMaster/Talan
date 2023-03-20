@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="message">
+    <sql id="getMaxNum">
+		SELECT CONCAT('MESSAGES',
+		NVL(MAX(SUBSTR(MESSAGE_NUMBER,9)),100000)+ 1) FROM MESSAGE
+    </sql>
+    
+    <sql id="setEstimateMessageNumber">
+		SELECT CONCAT('ESTIMATE', NVL(MAX(SUBSTR(MESSAGE_NUMBER,9)),100000)+ 1) FROM MESSAGE
+    </sql>
+    
+    <sql id="setChatNumber">
+    	SELECT CONCAT('CHAT',
+		NVL(MAX(SUBSTR(CHAT_NUMBER,5)),100000)+ 1) FROM MESSAGE
+    </sql>
+    
+    <select id="getMessageInfo" parameterType="map" resultType="Talan.DTO.MessageDTO">
+        select *
+        from MESSAGE
+        where CHAT_NUMBER = #{chatNumber}
+        order by MESSAGE_TIME asc
+    </select>
+    
+    <insert id="insertMessage" parameterType="map">
+        insert into MESSAGE (MESSAGE_NUMBER, MESSAGE_SENDER, MESSAGE_RECEIVER, MESSAGE_CONTENT, CHAT_NUMBER)
+        values ((<include refid="getMaxNum"/>),#{messageSender}, #{messageReceiver}, #{messageContent}, #{chatNumber})
+    </insert>
+    
+    <insert id="insertNewMessage" parameterType="map">
+        insert into MESSAGE (MESSAGE_NUMBER, MESSAGE_SENDER, MESSAGE_RECEIVER, MESSAGE_CONTENT, CHAT_NUMBER)
+        values ((<include refid="getMaxNum"/>), #{messageSender}, #{messageReceiver}, #{messageContent}, (<include refid="setChatNumber"/>))
+    </insert>
+    
+    <insert id="insertEstimateMessage" parameterType="map">
+        insert into MESSAGE (MESSAGE_NUMBER, MESSAGE_SENDER, MESSAGE_RECEIVER, MESSAGE_CONTENT, CHAT_NUMBER)
+        values ((<include refid="setEstimateMessageNumber"/>),#{messageSender}, #{messageReceiver}, #{messageContent}, #{chatNumber})
+    </insert>
+    
+    <insert id="insertNewEstimateMessage" parameterType="map">
+        insert into MESSAGE (MESSAGE_NUMBER, MESSAGE_SENDER, MESSAGE_RECEIVER, MESSAGE_CONTENT, CHAT_NUMBER)
+        values ((<include refid="setEstimateMessageNumber"/>), #{messageSender}, #{messageReceiver}, #{messageContent}, (<include refid="setChatNumber"/>))
+    </insert>
+    
+    <select id="getChatNumber" parameterType="map" resultType = "String">
+    	select chat_number
+    	from message 
+    	where message_sender = #{messageSender} and message_receiver = #{messageReceiver} OR message_sender = #{messageReceiver} and message_receiver = #{messageSender} group by chat_number
+    </select>
+    
+    <select id="getChatList" parameterType="map" resultType="Talan.DTO.MessageDTO">
+     	select * from message 
+     	where message_time in 
+     	(select MAX(message_time) from message 
+     	where message_sender = #{loginId} or message_receiver = #{loginId}
+     	group by chat_number) order by message_time desc
+    </select>
+    
+    <delete id="deleteChat">
+    	DELETE FROM MESSAGE
+    	WHERE CHAT_NUMBER = #{chatNumber}
+    </delete>
+    
+    <select id="newChatNumber" resultType="String">
+    	SELECT CONCAT('CHAT',
+		NVL(MAX(SUBSTR(CHAT_NUMBER,5)),100000)+ 1) FROM MESSAGE
+    </select>
+
+</mapper>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0,user-scalable=false, viewport-fit=cover">
+    <title>TALAN</title>
+    <link rel="stylesheet" href="../../css/morpheus-style.css"/>
+    <link rel="stylesheet" href="../../css/swiper.min.css"/>
+    <link rel="stylesheet" href="../../css/muikit.css"/>
+    <link rel="stylesheet" href="../../css/ui/requestlist.css">
+</head>
+<body>
+<div class="wrapper">
+    <header class="header">
+        <!-- 헤더 입력 영역 (헤더 디자인에 따라 바꿔치기 가능) -->
+        <!-- 하단에 라인이 있는경우 class="line"추가 -->
+        <h1>
+            보낸 견적
+        </h1>
+        <button type="button" class="btn-back l-fix">
+            뒤로가기
+        </button>
+    </header>
+    <!-- 상단바 -->
+    <div class="wrapper mg50">
+        <ul id="estimate-list">
+            <!-- <li class="div-card">
+                <div class="head-box-estimate">
+                    <h3 class="card-title-estimate">K-POP 레슨 견적서 보내드립니다.</h3>           
+                </div>
+                <div class="card-body-estimate">
+                    방송댄스 PRO 영도입니다. K-POP 댄스 레슨 요청하신 것에 대한 견적서 입니다.
+                </div>
+                <p class="card-estimate">2022.04.18</p>
+                <p class="status-ongoing">진행중</p>
+            </li>
+            <li class="div-card">
+                <div class="head-box">
+                    <h3 class="card-title">방송댄스 레슨 견적서 보내드립니다.</h3>
+                </div>
+                <div class="card-body">
+                    안녕하세요! 방송댄스 PRO 영도입니다. 기초부터 탄탄하게 가르쳐 드립니다!
+                </div>
+                <p class="card-estimate">2022.04.15</p>
+                <p class="status-decline">마감</p>
+            </li>
+            <li class="div-card">
+                <div class="head-box">
+                    <h3 class="card-title">방송댄스 레슨 견적서 보내드립니다.</h3>
+                </div>
+                <div class="card-body">
+                    안녕하세요! 방송댄스 PRO 영도입니다. 견적서 발송 드립니다.
+                </div>
+                <p class="card-estimate">2022.04.12</p>
+                <p class="status-matching">매칭완료</p>
+            </li> -->
+        </ul>
+    </div>
+
+
+    <!-- 하단바 -->
+</div>
+<!-- 하단바 -->
+<div class="footer">
+    <!-- 푸터 영역 (푸터 디자인에 따라 바꿔치기 가능) -->
+    <ul class="foot-menu-wrap">
+        <li id="request-btn">
+            <img src="../../img/pictogram/list.png" alt="요청/견적">
+            <br/>
+            요청/견적
+        </li>
+        <li id="message-btn">
+            <img src="../../img/pictogram/chat.png" alt="메시지">
+            <br/>
+            메시지
+        </li>
+        <li id="home-btn">
+            <img src="../../img/pictogram/home.png" alt="홈">
+            <br/>
+            홈
+        </li>
+        <li id="inquire-btn">
+            <img src="../../img/pictogram/search.png" alt="고수찾기">
+            <br/>
+            문의
+        </li>
+        <li id="my-page-btn">
+            <img src="../../img/pictogram/people.png" alt="마이페이지">
+            <br/>
+            마이페이지
+        </li>
+    </ul>
+</div>
+</body>
+<script type="text/javascript" src="../../js/mcore.min.js"></script>
+<!-- 뒤로가기 홈버튼 등 기본 동작에 대한 js 파일-->
+<script type="text/javascript" src="../../js/ui/common.event.js"></script>
+<script type="text/javascript" src="../../js/ui/pro/estimateMyList.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<!-- 페이지마다 만든 js 파일 여기에 추가해주기-->
+</html>

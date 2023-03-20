@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0,user-scalable=false, viewport-fit=cover">
+    <title>TALAN</title>
+    <link rel="stylesheet" href="../../css/morpheus-style.css"/>
+    <link rel="stylesheet" href="../../css/swiper.min.css"/>
+    <link rel="stylesheet" href="../../css/muikit.css"/>
+</head>
+<body>
+<div class="wrapper">
+    <header class="header line">
+        <!-- 헤더 입력 영역 (헤더 디자인에 따라 바꿔치기 가능) -->
+        <!-- 하단에 라인이 있는경우 class="line"추가 -->
+        <h1>
+            견적서 작성
+        </h1>
+
+        <button type="button" class="btn-back l-fix">
+            뒤로가기
+        </button>
+    </header>
+    <!-- 상단바 -->
+    <div class="wrapper">
+        <div class="info-wrap">
+            <div class="ipt-wrap">
+                <div class="ipt-form-type2">
+                    <span>예상소요시간</span>
+                    <div class="estimate-ipt-form-col">
+                        <input type="text" id="time-expect" name="time-expect" placeholder="예상소요시간을 입력해주세요.">
+                    </div>
+                </div>
+                <div class="ipt-form-type2">
+                    <span>제시금액</span>
+                    <div class="estimate-ipt-form-col">
+                        <!-- <select id="unit">
+                            <option>선택</option>
+                            <option>시간 당</option>
+                            <option>하루 당</option>
+                            <option>회차 당</option>
+                        </select> -->
+                        <input type="text" id="price" name="price" placeholder="제시금액을 입력해주세요">
+                    </div>
+                </div>
+                <div class="ipt-form-type2">
+                    <span>상세제목</span>
+                    <div class="estimate-ipt-form-col">
+                        <input type="text" id="subject" name="subject" placeholder="상세제목을 입력해주세요">
+                    </div>
+                </div>
+                <div class="ipt-form-type2">
+                    <span>상세내용</span>
+                    <div class="estimate-ipt-form-col">
+                        <textarea class="report-textarea" id="content" name="content" placeholder="상세내용을 입력해주세요"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 하단바 -->
+<div class="footer">
+    <div class="btn-wrap count2 pd">
+
+        <button type="button" id="write" class="btn-point-color">
+            작성하기
+        </button>
+        <button type="button" id="cancel" class="btn-line">
+            취소하기
+        </button>
+    </div>
+</div>
+</body>
+<script type="text/javascript" src="../../js/mcore.min.js"></script>
+<!-- 뒤로가기 홈버튼 등 기본 동작에 대한 js 파일-->
+<script type="text/javascript" src="../../js/ui/common.event.js"></script>
+<script type="text/javascript" src="../../js/ui/pro/estimateWrite.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<!-- 페이지마다 만든 js 파일 여기에 추가해주기-->
+</html>

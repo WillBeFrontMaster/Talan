@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+        <!DOCTYPE mapper
+                PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+                "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="report">
+	<sql id="setReportNumber">
+		SELECT CONCAT('REPORT',
+		NVL(MAX(SUBSTR(REPORT_NUMBER,7)),100000)+ 1) FROM REPORT
+	</sql>
+
+	<insert id="registReport">
+		INSERT INTO REPORT
+		VALUES ((<include refid="setReportNumber"/>), #{reportPeople}, #{reportTarget}, #{reportContent}, #{reportCode}, SYSDATE, 0)
+	</insert>
+	
+	<select id="getReportList" resultType="Talan.DTO.ReportDTO">
+		SELECT * FROM REPORT
+	</select>
+	
+	<select id="getReportMyList" parameterType="map" resultType="Talan.DTO.ReportDTO">
+		SELECT * FROM REPORT WHERE REPORT_PEOPLE = #{peopleId}
+	</select>
+	
+	<select id="getReport" resultType="Talan.DTO.ReportDTO">
+		SELECT * FROM REPORT WHERE REPORT_NUMBER = #{reportNumber}
+	</select>
+	
+	<update id="reportProcess">
+		UPDATE REPORT
+		SET REPORT_STATUS = #{reportStatus}
+		WHERE REPORT_NUMBER = #{reportNumber}
+	</update>
+	
+</mapper>

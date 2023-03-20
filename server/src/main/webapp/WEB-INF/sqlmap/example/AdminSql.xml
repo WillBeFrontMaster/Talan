@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+        <!DOCTYPE mapper
+                PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+                "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="admin">
+
+	<insert id="registAdmin">
+		insert into admin
+		values (#{adminId}, #{adminPassword}, 1)
+	</insert>
+	
+	<select id="loginAdmin" parameterType="map" resultType="Talan.DTO.AdminDTO">
+		SELECT * FROM ADMIN WHERE ADMIN_ID = #{peopleId}
+	</select>
+	
+	<delete id="banishPeople">
+		DELETE FROM PEOPLE
+		WHERE PEOPLE_ID = #{reportTarget}
+	</delete>
+	
+	<update id="deleteReview">
+		UPDATE REVIEW
+		SET STAR_POINT = null, REVIEW_CONTENT = '(관리자에 의해 숨겨진 후기입니다.)'
+		WHERE REVIEW_NUMBER = #{reviewNumber}
+	</update>
+	
+	<update id="updateProKindScore">
+		UPDATE PRO
+		SET KIND_SCORE = (SELECT AVG(STAR_POINT) KIND_SCORE 
+						  FROM REVIEW 
+						  WHERE PRO_ID = (SELECT PRO_ID FROM REVIEW WHERE REVIEW_NUMBER = #{reviewNumber}))
+		WHERE PRO_ID = (SELECT PRO_ID 
+					    FROM REVIEW 
+					    WHERE REVIEW_NUMBER = #{reviewNumber})
+	</update>
+	
+</mapper>

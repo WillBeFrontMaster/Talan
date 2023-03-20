@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+        <!DOCTYPE mapper
+                PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+                "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="review">
+
+	<sql id="setReviewNumber">
+		SELECT CONCAT('REVIEW',
+		NVL(MAX(SUBSTR(REVIEW_NUMBER,7)),100000)+ 1) FROM REVIEW
+	</sql>
+	
+	<insert id="registReview">
+		INSERT INTO REVIEW (REVIEW_NUMBER, PAYMENT_NUMBER, PEOPLE_ID, REVIEW_TITLE, REVIEW_CONTENT, STAR_POINT, PRO_ID, REVIEW_RESPONSE)
+		VALUES
+		( (<include refid="setReviewNumber"/>), #{paymentNumber}, #{peopleId}, #{reviewTitle}, #{reviewContent}, #{starPoint}, #{proId}, '아직 프로가 답변하지 않은 리뷰입니다.')
+	</insert>
+	
+	<select id="getReviewCount" parameterType="map" resultType="String">
+		SELECT COUNT(*) REVIEW_COUNT FROM REVIEW WHERE PRO_ID = #{proId}
+	</select>
+
+	<update id="responseReview">
+		UPDATE REVIEW
+		SET REVIEW_RESPONSE = #{reviewResponse}
+		WHERE PRO_ID = #{proId} AND REVIEW_NUMBER = #{reviewNumber}
+	</update>
+	
+	<select id="getReviewList" parameterType="map" resultType="Talan.DTO.ReviewDTO">
+		SELECT * FROM REVIEW WHERE PEOPLE_ID = #{peopleId} ORDER BY REVIEW_NUMBER DESC
+	</select>
+	
+	<select id="getReviewListPro" parameterType="map" resultType="Talan.DTO.ReviewDTO">
+		SELECT * FROM REVIEW WHERE PRO_ID = #{proId} ORDER BY REVIEW_NUMBER DESC
+	</select>
+	
+	<select id="getReview" parameterType="map" resultType="Talan.DTO.ReviewDTO">
+		SELECT * FROM REVIEW WHERE REVIEW_NUMBER = #{reviewNumber}
+	</select>
+	
+	<select id="getReviewNumber" parameterType="map" resultType="String">
+		SELECT REVIEW_NUMBER
+		FROM REVIEW
+		WHERE PAYMENT_NUMBER = #{paymentNumber}
+	</select>
+	
+</mapper>

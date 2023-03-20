@@ -1,0 +1,153 @@
+.div-card{
+    border: 2px solid #58AAFF;
+    border-radius: 1em;
+    height: 8em;
+    padding-left: 1em;
+    margin: 0.5em;
+}
+.div-card-request{
+    border: 1px solid #e9e9e9;
+    border-radius: 1em;
+    height: 8em;
+    padding-left: 1em;
+    margin: 0.5em;
+}
+.card-title{
+    font-size: 1.5em;
+    display: inline-block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width:75%;
+
+}
+.card{
+    margin-top: 0.5em;
+    margin-left: 0.5em;
+    display: inline-block;
+}
+
+.card-body img{
+    float:left;
+    margin-right:1.5rem;
+}
+.estimate-info{
+    bottom: 1rem;
+}
+.card-profile{
+    width: 3.2em;
+    height : 3.2em;
+    display: inline-block;
+}
+.card-day{
+    float:right;
+    margin: 0.3rem 1rem 0 0;
+}
+.head-box{
+    height : 3em;
+}
+
+.write-btn{
+    width:30px;
+    height:30px;
+    margin-top: 1rem;
+    margin-right: 1.5rem;
+}
+.status-decline{
+    float: right;
+    color: rgb(6 4 4);
+    margin-right: 3%;
+    margin-top: 1%;
+    font-weight: 600;
+    font-size: 1.5rem;
+}
+.status-ongoing{
+    float: right;
+    color: rgb(221 0 0);
+    margin-right: 3%;
+    margin-top: 1%;
+    font-weight: 600;
+    font-size: 1.5rem;
+}
+.status-matching{
+    float: right;
+    color: #0043db;
+    margin-right: 3%;
+    margin-top: 1%;
+    font-weight: 600;
+    font-size: 1.5rem;
+}
+select{line-height:5rem;font-size:1.9rem;font-weight:bold;text-align: center;}
+
+
+.head-box-estimate{
+    height : 3em;
+    width: 100%;
+}
+.card-title-estimate{
+    font-size: 1.5em;
+    display: inline-block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width:100%;
+}
+.card-body-estimate{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 95%;
+}
+.card-estimate{
+    margin-top: 0.5em;
+    display: inline-block;
+    float:left;
+    bottom: 0;
+}
+.card-body img{
+    float:left;
+    margin-right:1.5rem;
+}
+.estimate-info{
+    bottom: 1rem;
+}
+.card-profile{
+    width: 3.2em;
+    height : 3.2em;
+    display: inline-block;
+}
+
+.estimate-title{
+    width:100%
+}
+.request-content{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 87.5%;
+}
+
+.decline-btn{
+    float:right;
+    width:20%;
+    margin-right: 2%;
+    padding: 0.5rem 1rem;
+    font-size: 1.3rem;
+    text-align: center;
+    border: 1px solid #f2f2f2;
+    border-radius: 1rem;
+    box-shadow: 1px 1px 1px -0.5px;
+}
+
+.declined-btn{
+    float:right;
+    width:20%;
+    margin-right: 2%;
+    padding: 0.5rem 1rem;
+    font-size: 1.3rem;
+    text-align: center;
+    border: 1px solid #f2f2f2;
+    color: rgb(255, 0, 0);
+    border-radius: 1rem;
+    box-shadow: 1px 1px 1px -0.5px;
+}

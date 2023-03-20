@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0,user-scalable=false, viewport-fit=cover">
+    <title>TALAN</title>
+    <link rel="stylesheet" href="../../css/morpheus-style.css"/>
+    <link rel="stylesheet" href="../../css/swiper.min.css"/>
+    <link rel="stylesheet" href="../../css/muikit.css"/>
+</head>
+<body>
+<div class="wrapper">
+    <header class="header line">
+        <!-- 헤더 입력 영역 (헤더 디자인에 따라 바꿔치기 가능) -->
+        <!-- 하단에 라인이 있는경우 class="line"추가 -->
+        <h1>
+            게시글 작성
+        </h1>
+
+        <button type="button" class="btn-back l-fix">
+            뒤로가기
+        </button>
+    </header>
+    <!-- 상단바 -->
+    <div class="container">
+        <!-- 헤더 입력 영역 (헤더 디자인에 따라 바꿔치기 가능) -->
+        <div class="cont-wrap">
+            <!-- 태블릿에서 볼때 왼쪽에 정렬될 내용 -->
+            <div>
+                <table class="tbl-ipt">
+                    <colgroup>
+                        <col style="width:30%"/>
+                        <col style="width:70%"/>
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <th>
+                                작 성 자
+                            </th>
+                            <td>
+                                <input type="text" disabled id="feed-writer" class="full"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                제 목
+                            </th>
+                            <td>
+                                <input type="text" id="feed-title" placeholder="피드 제목을 입력하세요." class="full"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                내 용
+                            </th>
+                            <td>
+                                <textarea class="full report-textarea" id ="feed-content" style="white-space:pre;" placeholder="피드 내용을 입력하세요."></textarea>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th class="required">
+                                첨 부 파 일
+                            </th>
+                            <td>
+                                <input type="text" id="img-name" disabled placeholder="미디어 이름">
+                                <button type="button" id="img-btn" class="feed-file-btn">
+                                    미디어 선택
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- 하단바 -->
+</div>
+<div class="footer">
+    <!-- 푸터 영역 (푸터 디자인에 따라 바꿔치기 가능) -->
+        <div class="btn-wrap count2 pd">
+            <button type="button" id="submit" class="btn-point-color">
+                작성하기
+            </button>
+            <button type="button" id="cancel" class="btn-line">
+                취소하기
+            </button>
+        </div>
+</div>
+</body>
+<script type="text/javascript" src="../../js/mcore.min.js"></script>
+<!-- 뒤로가기 홈버튼 등 기본 동작에 대한 js 파일-->
+<script type="text/javascript" src="../../js/ui/common.event.js"></script>
+<!-- 페이지마다 만든 js 파일 여기에 추가해주기-->
+<script type="text/javascript" src="../../js/ui/pro/feedWrite.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</html>

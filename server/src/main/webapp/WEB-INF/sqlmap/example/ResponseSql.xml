@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+        <!DOCTYPE mapper
+                PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+                "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="response">
+
+	<sql id="setResponseNumber">
+		SELECT CONCAT('RESPONSE',
+		NVL(MAX(SUBSTR(RESPONSE_NUMBER, 9)),100000)+ 1) FROM RESPONSE
+	</sql>
+	
+	<insert id="registResponse">
+		INSERT INTO RESPONSE (RESPONSE_NUMBER, ADMIN_ID, RESPONSE_TITLE, RESPONSE_CONTENT, RESPONSE_REGISTER_DATE, RESPONSE_MODIFY_DATE, INQUIRY_NUMBER)
+		VALUES
+		( (<include refid="setResponseNumber"/>), #{adminId}, #{responseTitle}, #{responseContent}, SYSDATE, SYSDATE, #{inquiryNumber} )
+	</insert>
+	
+	<select id="getResponse" parameterType="map" resultType="Talan.DTO.ResponseDTO">
+		SELECT * FROM RESPONSE WHERE INQUIRY_NUMBER = #{inquiryNumber}
+	</select>
+
+</mapper>

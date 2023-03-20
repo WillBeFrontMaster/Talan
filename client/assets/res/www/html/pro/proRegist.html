@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+   <meta charset="utf-8" />
+   <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0,user-scalable=false, viewport-fit=cover">
+   <title>TALAN</title>
+   <link rel="stylesheet" href="../../css/morpheus-style.css" />
+   <link rel="stylesheet" href="../../css/swiper.min.css" />
+   <link rel="stylesheet" href="../../css/muikit.css" />
+</head>
+
+<body>
+   <header class="header line">
+      <!-- 헤더 입력 영역 (헤더 디자인에 따라 바꿔치기 가능) -->
+      <!-- 하단에 라인이 있는경우 class="line"추가 -->
+      <h1>
+         PRO등록
+      </h1>
+      <button type="button" class="btn-back l-fix">
+         뒤로가기
+      </button>
+   </header>
+      <div class="cont-wrap pd">
+         <div class="info-wrap">
+            <h2 class="sub-tit">
+               추가 정보를 입력하세요.
+            </h2>
+         </div>
+         <div class="ipt-wrap">
+            <div class="ipt-form-type2">
+               <span>
+                  경력사항
+               </span>
+               <div class="ipt-form-col">
+                  <select class="category-select-box" name="category" id="category">
+                     <option value="">선택</option>
+                     <option value="lesson">레슨</option>
+                     <option value="home">홈/리빙</option>
+                     <option value="event">이벤트</option> 
+                     <option value="business">비즈니스</option>
+                     <option value="design">디자인/개발</option>
+                     <option value="health">건강/미용</option>
+                     <option value="part-time-job">아르바이트</option>
+                     <option value="etc">기타</option>
+                  </select>
+               </div>
+               <div class="ipt-form-col">
+                  <input type="text" class="full" id="regist-content" placeholder="세부 내용을 입력하세요." />
+                  <input type="text" class="full" id="experience-period"placeholder="기간을 입력하세요." />
+               </div>
+            </div>
+            <div class="ipt-form-type2">
+               <span>
+                  자격증
+               </span>
+               <div class="ipt-form-row">
+                  <input type="text" id="license" placeholder="두 글자 이상 입력하세요." />
+                  <button type="button" id="search-btn" class="btn-line">
+                     검색
+                  </button>
+                  <input type="text" id="selected-license" class="full mg20" placeholder="자격증 이름(자동입력)" disabled/>
+               </div>
+            </div>
+            <div class="ipt-form-type2" id="search-result">
+               <span>
+                  검색결과
+               </span>
+               <table id="license-list" class="license-list full" >
+                  <col width="40%">
+                  <col width="60%">
+                  <thead>
+                     <tr><td>계열명</td><td>종목명</td></tr>
+                  </thead>
+                  <tbody class="search-license" id="search-license">
+                     
+                  </tbody>
+               </table>
+            </div>
+           
+         </div>
+         
+      </div>
+<div class="footer">
+    <div class="btn-wrap pd">
+       <button type="button" id="regist-btn" class="btn-point-color">
+          등록하기
+       </button>
+    </div>
+</div>
+</body>
+
+<script type="text/javascript" src="../../js/mcore.min.js"></script>
+<!-- 뒤로가기 홈버튼 등 기본 동작에 대한 js 파일-->
+<script type="text/javascript" src="../../js/ui/common.event.js"></script>
+<!--<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>-->
+<script type="text/javascript" src="../../js/ui/pro/proRegist.js"></script>
+
+
+</html>

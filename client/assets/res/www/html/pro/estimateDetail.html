@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0,user-scalable=false, viewport-fit=cover">
+    <title>TALAN</title>
+    <link rel="stylesheet" href="../../css/morpheus-style.css"/>
+    <link rel="stylesheet" href="../../css/swiper.min.css"/>
+    <link rel="stylesheet" href="../../css/muikit.css"/>
+</head>
+<body>
+<div class="wrapper">
+    <header class="header line">
+        <!-- 헤더 입력 영역 (헤더 디자인에 따라 바꿔치기 가능) -->
+        <!-- 하단에 라인이 있는경우 class="line"추가 -->
+        <h1>
+            <span id="pro-id">김파티</span>님의 견적서
+        </h1>
+        <button type="button" class="btn-menu r-fix">
+            메뉴
+            <!-- 왼쪽 버튼 class="l-fix" 추가 -->
+            <!-- 오른쪽 버튼 class="r-fix" 추가 -->
+        </button>
+
+        <button type="button" class="btn-back l-fix">
+            뒤로가기
+        </button>
+    </header>
+    <!-- 상단바 -->
+    <div class="wrapper">
+        <div class="info-wrap">
+            <div class="ipt-wrap">
+                <div class="ipt-form-type2">
+                    <span>예상소요시간</span>
+                    <div class="estimate-ipt-form-col">
+                        <input type="text" id="time-expect" name="time-expect" value="4시간" readonly>
+                    </div>
+                </div>
+                <div class="ipt-form-type2">
+                    <span>제시금액</span>
+                    <div class="estimate-ipt-form-col">
+                        <input type="text" id="price" name="price" value="200000" readonly>
+                    </div>
+                </div>
+                <div class="ipt-form-type2">
+                    <span>상세제목</span>
+                    <div class="estimate-ipt-form-col">
+                        <input type="text" id="subject" name="subject" readonly value="인상깊은 파티를 원하시나요?">
+                    </div>
+                </div>
+                <div class="ipt-form-type2">
+                    <span>상세내용</span>
+                    <div class="estimate-ipt-form-col">
+                        <textarea class="report-textarea" id="content" name="content" readonly>
+안녕하세요! 이벤트PRO 김파티입니다. 파티플래너로 4년째 근무중이고, 주로 생일파티를 기획했습니다. 원하시는 컨셉이 있으시면 저와 충분히 상담 후 최대한 그 방향에 맞춰드립니다. 채팅 주세요^^
+                        </textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 하단바 -->
+<div class="footer">
+
+    <div class="btn-wrap count2 pd">
+        <button type="button" id="message" class="btn-point-color">
+            1:1 채팅
+        </button>
+        <button type="button" id="purchase" class="btn-line">
+            결제하기
+        </button>
+    </div>
+</div>
+</body>
+<script type="text/javascript" src="../../js/mcore.min.js"></script>
+<!-- 뒤로가기 홈버튼 등 기본 동작에 대한 js 파일-->
+<script type="text/javascript" src="../../js/ui/common.event.js"></script>
+<script type="text/javascript" src="../../js/ui/pro/estimateDetail.js"></script>
+<!-- 페이지마다 만든 js 파일 여기에 추가해주기-->
+<script type="text/javascript" src="../../js/ui/pro/estimateDetail.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</html>

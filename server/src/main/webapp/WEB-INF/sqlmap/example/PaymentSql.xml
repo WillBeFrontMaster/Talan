@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+        <!DOCTYPE mapper
+                PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+                "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="payment">
+
+	<sql id="setPaymentNumber">
+		SELECT CONCAT('PAYMENT',
+		NVL(MAX(SUBSTR(PAYMENT_NUMBER,8)),100000)+ 1) FROM PAYMENT
+	</sql>
+	
+	<insert id="paymentInsert">
+		INSERT INTO PAYMENT 
+			(PAYMENT_NUMBER, ESTIMATE_NUMBER, PAYMENT_PRICE, PAYMENT_STATE, PAYMENT_DATE, 
+				PAYMENT_CANCEL_DATE, PAYMENT_TYPE, PROGRESSIVE_STATUS, PEOPLE_ID, PRO_ID)
+		VALUES
+		( (<include refid="setPaymentNumber"/>), #{estimateNumber}, #{paymentPrice}, 0, SYSDATE, 
+			SYSDATE, #{paymentType}, '결제 완료', #{peopleId}, #{proId} )
+	</insert>
+
+	<update id="paymentCancel">
+		UPDATE PAYMENT
+		SET PAYMENT_STATE = -1,
+			PAYMENT_CANCEL_DATE = SYSDATE,
+			PROGRESSIVE_STATUS = '결제 취소'
+		WHERE PEOPLE_ID = #{peopleId} AND PAYMENT_NUMBER = #{paymentNumber}
+			
+	</update>
+	
+	<update id="setReviewStatus">
+		UPDATE PAYMENT
+		SET REVIEW_STATUS = '1'
+		WHERE PAYMENT_NUMBER = #{paymentNumber}
+	</update>
+	
+	<select id="getPaymentList" parameterType="map" resultType="Talan.DTO.PaymentDTO">
+		SELECT * FROM PAYMENT WHERE PEOPLE_ID = #{peopleId} ORDER BY PAYMENT_NUMBER DESC
+	</select>
+	
+	<select id="getPayment" parameterType="map" resultType="Talan.DTO.PaymentDetailDTO">
+		SELECT P.PAYMENT_NUMBER, P.PAYMENT_PRICE, P.PAYMENT_DATE, P.PAYMENT_CANCEL_DATE, 
+    		P.PAYMENT_TYPE, P.PROGRESSIVE_STATUS, P.ESTIMATE_NUMBER, E.ESTIMATE_TITLE, 
+   	 		E.ESTIMATE_CONTENT, R.REQUEST_TITLE, R.REQUEST_CONTENT, P.REVIEW_STATUS, 
+    		P.PRO_ID, N.NICKNAME
+		FROM PAYMENT P, ESTIMATE E, REQUEST R, PEOPLE N
+		WHERE P.ESTIMATE_NUMBER = E.ESTIMATE_NUMBER 
+		AND E.REQUEST_NUMBER = R.REQUEST_NUMBER 
+		AND P.PRO_ID = N.PEOPLE_ID 
+		AND P.PAYMENT_NUMBER = #{paymentNumber}
+	</select>
+
+</mapper>

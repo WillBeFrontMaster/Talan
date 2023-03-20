@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0,user-scalable=false, viewport-fit=cover">
+    <title>TALAN</title>
+    <link rel="stylesheet" href="../../css/morpheus-style.css" />
+    <link rel="stylesheet" href="../../css/swiper.min.css" />
+    <link rel="stylesheet" href="../../css/muikit.css" />
+</head>
+
+<body>
+    <header class="header">
+        <!-- 헤더 입력 영역 (헤더 디자인에 따라 바꿔치기 가능) -->
+        <!-- 하단에 라인이 있는경우 class="line"추가 -->
+        <h1 class="line">
+            마이페이지
+        </h1>
+
+    </header>
+    <div class="join-pro line" id="pro-register">
+            PRO 가입하기
+            <button type="button" class="register btn-next">
+                next
+            </button>
+    </div>
+    <header class="header2 pro-background" id="pro-mypage">
+        <div class="people-info-topbar" >
+        <span>프로로 전환</span>
+        <label class="switch pro-people">
+            <button class="toggle" id="go-pro"></button>
+            <span class="slider round l-fix"></span>
+        </label>
+        </div>
+    </header>
+    <header class="header2" id="people-mypage">
+        <div class="people-info-topbar" >
+        <span>고객으로 전환</span>
+        <label class="switch pro-people">
+            <button class="toggle" id="go-people"></button>
+            <span class="slider round r-fix" ></span>
+        </label>
+        </div>
+    </header>
+    <!-- 상단바 -->
+    <div class="container mg50">
+        <ul class="profile-box">
+            <li class="profile">
+                <img src="../../img/profile-image.png" id ="profile-img-btn"/>
+                <div class="name">
+                    <span id="nickname">일억이</span><img src="../../img/people.png" id="people-mypage1"/><img src="../../img/pro.png" id="pro-mypage1">
+                    <div class="feed-write-btn" id="pro-mypage3">글쓰기</div>
+                </div>
+            </li>
+            <li class="profile-intro">
+                <div id="modify-intro" style="float:right">
+                    수정<!-- alert 띄워서 수정할거요-->
+                </div>
+                <div class="introduce" id="intro">
+                    ㅎㅇㅎㅇ인스타처럼 이렇게 할거임<br/>
+                    #소담공주<br/>
+                    #배구파<br/>
+                </div>
+
+            </li>
+        </ul>
+        <div class="bline"></div>
+        <div class="aa">
+            <ul class="page-list">
+                <li class="item-container">
+                    <div class="item">
+                        <div class="item-title" id="modify-info">내 정보 조회</div>
+                    </div>
+                </li>
+                <li class="item-container" id="people-mypage2">
+                    <div class="item" id="payment-list-people">
+                        <div class="item-title">최근 결제 내역</div>
+                        <div class="item-info" id="latest-payment-people">최근 결제 내역이 없습니다.</div>
+                        <!--<div class="item-info">가장 최근 결제한 내역 띄우삼</div>-->
+                    </div>
+                </li>
+<!--                <li class="item-container" id="pro-mypage5">-->
+<!--                    <div class="item" id="payment-list-pro">-->
+<!--                        <div class="item-title">최근 결제 내역</div>-->
+<!--                        <div class="item-info" id="latest-payment-pro">최근 결제 내역이 없습니다.</div>-->
+<!--                        &lt;!&ndash;<div class="item-info">가장 최근 결제한 내역 띄우삼</div>&ndash;&gt;-->
+<!--                    </div>-->
+<!--                </li>-->
+                <li class="item-container" id="people-mypage3">
+                    <div class="item" id="request-list">
+                        <div class="item-title">최근 요청 내역</div>
+                        <div class="item-info" id="latest-request">최근 요청 내역이 없습니다.</div>
+                        <!--<div class="item-info">가장 최근 요청한 내역 띄우삼</div>-->
+                    </div>
+                </li>
+                <li class="item-container" id="pro-mypage2">
+                    <div class="item" id="estimate-list">
+                        <div class="item-title">최근 견적 내역</div>
+                        <div class="item-info" id="latest-estimate">최근 견적 내역이 없습니다.</div>
+                        <!--<div class="item-info">가장 최근 요청한 내역 띄우삼</div>-->
+                    </div>
+                </li>
+                <li class="item-container" id="pro-mypage4">
+                    <div class="item" id="review-list-receive">
+                        <div class="item-title">최근 받은 후기 내역</div>
+                        <div class="item-info" id="latest-review-receive">최근 받은 후기 내역이 없습니다.</div>
+                        <!--<div class="item-info">가장 최근 후기 쓴 내역 띄우삼</div>-->
+                    </div>
+                </li>
+                <li class="item-container" id="people-mypage4">
+                    <div class="item" id="review-list-write">
+                        <div class="item-title">최근 작성한 후기 내역</div>
+                        <div class="item-info" id="latest-review-write">최근 작성한 후기 내역이 없습니다.</div>
+                        <!--<div class="item-info">가장 최근 후기 쓴 내역 띄우삼</div>-->
+                    </div>
+                </li>
+                <li class="item-container">
+                    <div class="item" id="inquiry-list">
+                        <div class="item-title">최근 문의 내역</div>
+                        <div class="item-info"id="latest-inquiry">최근 문의 내역이 없습니다.</div>
+                        <!--<div class="item-info">가장 최근 문의한 내역 띄우삼</div>-->
+                    </div>
+                </li>
+                <li class="item-container" id="pro-mypage5">
+                    <div class="item">
+                        <div class="item-title">최근 게시글</div>
+                        <ul class="metro-wrap" id="list">
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+
+    <!-- 하단바 -->
+    <div class="footer">
+        <!-- 푸터 영역 (푸터 디자인에 따라 바꿔치기 가능) -->
+        <ul class="foot-menu-wrap">
+            <li id="request-btn">
+                <img src="../../img/pictogram/list.png" alt="요청/견적">
+                <br />
+                요청/견적
+            </li>
+            <li id="message-btn">
+                <img src="../../img/pictogram/chat.png" alt="메시지">
+                <br />
+                메시지
+            </li>
+            <li id="home-btn">
+                <img src="../../img/pictogram/home.png" alt="홈">
+                <br />
+                홈
+            </li>
+            <li id="inquire-btn">
+                <img src="../../img/pictogram/search.png" alt="고수찾기">
+                <br />
+                문의
+            </li>
+            <li id="my-page-btn">
+                <img src="../../img/pictogram/people.png" alt="마이페이지">
+                <br />
+                마이페이지
+            </li>
+        </ul>
+    </div>
+</body>
+<script type="text/javascript" src="../../js/mcore.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<!-- 뒤로가기 홈버튼 등 기본 동작에 대한 js 파일-->
+<script type="text/javascript" src="../../js/ui/common.event.js"></script>
+<script type="text/javascript" src="../../js/ui/member/mypage.js"></script>
+<!-- 페이지마다 만든 js 파일 여기에 추가해주기-->
+</html>

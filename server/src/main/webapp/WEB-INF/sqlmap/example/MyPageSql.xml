@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+        <!DOCTYPE mapper
+                PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+                "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mypage">
+
+	<select id="getLastPaymentPRO" parameterType="map" resultType="Talan.DTO.PaymentDTO">
+		SELECT PAYMENT_NUMBER, ESTIMATE_NUMBER 
+		FROM (SELECT PAYMENT_NUMBER, ESTIMATE_NUMBER, ROWNUM 
+			  FROM PAYMENT 
+			  WHERE PRO_ID = #{id}
+			  ORDER BY PAYMENT_NUMBER DESC) 
+		WHERE ROWNUM = 1
+	</select>
+	
+	<select id="getLastPaymentPEOPLE" parameterType="map" resultType="Talan.DTO.PaymentDTO">
+		SELECT PAYMENT_NUMBER, ESTIMATE_NUMBER 
+		FROM (SELECT PAYMENT_NUMBER, ESTIMATE_NUMBER, ROWNUM 
+			  FROM PAYMENT 
+			  WHERE PEOPLE_ID = #{id}
+			  ORDER BY PAYMENT_NUMBER DESC) 
+		WHERE ROWNUM = 1
+	</select>
+	
+
+	<select id="getLastEstimate" parameterType="map" resultType="String">
+		SELECT ESTIMATE_TITLE 
+		FROM (SELECT ESTIMATE_TITLE, ROWNUM 
+			  FROM ESTIMATE 
+			  WHERE PRO_ID = #{id} 
+			  ORDER BY ESTIMATE_NUMBER DESC) 
+		WHERE ROWNUM = 1
+	</select>
+
+	<select id="getLastRequest" parameterType="map" resultType="String">
+		SELECT REQUEST_TITLE 
+		FROM (SELECT REQUEST_TITLE, ROWNUM 
+			  FROM REQUEST 
+			  WHERE PEOPLE_ID = #{id} 
+			  ORDER BY REQUEST_NUMBER DESC) 
+		WHERE ROWNUM = 1
+	</select>
+	
+	<select id="getLastReviewPEOPLE" parameterType="map" resultType="String">
+		SELECT REVIEW_TITLE  
+		FROM (SELECT REVIEW_TITLE, ROWNUM 
+			  FROM REVIEW
+			  WHERE PEOPLE_ID = #{id}
+			  ORDER BY REVIEW_NUMBER DESC) 
+		WHERE ROWNUM = 1
+	</select>
+	
+	<select id="getLastReviewPRO" parameterType="map" resultType="String">
+		SELECT REVIEW_TITLE  
+		FROM (SELECT REVIEW_TITLE, ROWNUM 
+			  FROM REVIEW
+			  WHERE PRO_ID = #{id}
+			  ORDER BY REVIEW_NUMBER DESC) 
+		WHERE ROWNUM = 1
+	</select>
+	
+	<select id="getLastInquiry" parameterType="map" resultType="String">
+		SELECT INQUIRY_TITLE  
+		FROM (SELECT INQUIRY_TITLE, ROWNUM 
+			  FROM INQUIRY 
+			  WHERE PEOPLE_ID = #{id}
+			  ORDER BY INQUIRY_NUMBER DESC) 
+		WHERE ROWNUM = 1
+	</select>
+
+	<select id="getLastReport" parameterType="map" resultType="String">
+		SELECT REPORT_CONTENT  
+		FROM (SELECT REPORT_CONTENT, ROWNUM 
+			  FROM REPORT 
+			  WHERE REPORT_PEOPLE = #{id}
+			  ORDER BY REPORT_NUMBER DESC) 
+		WHERE ROWNUM = 1
+	</select>
+	
+	<select id="getRequest" parameterType="map" resultType="String">
+		SELECT REQUEST_TITLE  
+		FROM (SELECT REQUEST_TITLE, ROWNUM 
+			  FROM REQUEST 
+			  WHERE PEOPLE_ID = #{id}
+			  ORDER BY REQUEST_NUMBER DESC) 
+		WHERE ROWNUM = 1
+	</select>
+	
+	<select id="getRequestNumber" parameterType="String" resultType="String">
+		SELECT REQUEST_NUMBER FROM ESTIMATE WHERE ESTIMATE_NUMBER = #{estimateNumber}
+	</select>
+
+	<select id="getEstimate" parameterType="String" resultType="String">
+		SELECT ESTIMATE_TITLE FROM ESTIMATE WHERE ESTIMATE_NUMBER = #{estimateNumber}
+	</select>
+	
+	<select id="getInfo" parameterType="map" resultType="Talan.DTO.PeopleDTO">
+		SELECT STORE_IMAGE_NAME, ORIGIN_IMAGE_NAME, IMAGE_PATH, NICKNAME, INTRO
+		FROM PEOPLE
+		WHERE PEOPLE_ID = #{id}
+	</select>
+
+</mapper>

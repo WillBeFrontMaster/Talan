@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+        <!DOCTYPE mapper
+                PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+                "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="inquiry">
+
+	<sql id="setInquiryNumber">
+		SELECT CONCAT('INQUIRY',
+		NVL(MAX(SUBSTR(INQUIRY_NUMBER,8)),100000)+ 1) FROM INQUIRY
+	</sql>
+	
+	<insert id="registInquiry">
+		INSERT INTO INQUIRY (INQUIRY_NUMBER, PEOPLE_ID, INQUIRY_TITLE, INQUIRY_CONTENT, SECRET_STATUS, 
+							INQUIRY_PASSWORD, INQUIRY_REGISTER_DATE, INQUIRY_MODIFY_DATE, RESPONSE_STATUS)
+		VALUES
+		( (<include refid="setInquiryNumber"/>), #{peopleId}, #{inquiryTitle}, #{inquiryContent}, #{secretStatus}, 
+												#{inquiryPassword}, SYSDATE, SYSDATE, 0)
+	</insert>
+	
+	<select id="getLastInquiryNumber" resultType="String">
+		SELECT INQUIRY_NUMBER FROM (SELECT INQUIRY_NUMBER, ROWNUM FROM INQUIRY ORDER BY INQUIRY_NUMBER DESC) WHERE ROWNUM = 1
+	</select>
+
+	<select id="getInquiryList" parameterType="map" resultType="Talan.DTO.InquiryDTO">
+	<![CDATA[
+		SELECT INQUIRY_NUMBER, PEOPLE_ID, INQUIRY_TITLE, INQUIRY_CONTENT, SECRET_STATUS, INQUIRY_REGISTER_DATE, INQUIRY_MODIFY_DATE, RESPONSE_STATUS
+		FROM
+		(
+		SELECT INQUIRY_NUMBER, PEOPLE_ID, INQUIRY_TITLE, INQUIRY_CONTENT, SECRET_STATUS, INQUIRY_REGISTER_DATE, INQUIRY_MODIFY_DATE, RESPONSE_STATUS
+		FROM
+		(
+		SELECT ROWNUM, INQUIRY_NUMBER, PEOPLE_ID, INQUIRY_TITLE, INQUIRY_CONTENT, SECRET_STATUS, INQUIRY_REGISTER_DATE, INQUIRY_MODIFY_DATE, RESPONSE_STATUS
+		FROM
+		(
+		SELECT *
+		FROM INQUIRY
+		ORDER BY INQUIRY_NUMBER DESC
+		)
+		)
+		WHERE INQUIRY_NUMBER <= #{lastInquiryNumber}
+		)
+		WHERE ROWNUM <= #{cnt}
+		]]>
+	</select>
+	
+	<select id="getInquiryCnt" resultType="Integer">
+		SELECT COUNT(*) AS cnt FROM INQUIRY
+	</select>
+	
+	<select id="getPersonalInquiryList" parameterType="map" resultType="Talan.DTO.InquiryDTO">
+		SELECT *
+		FROM INQUIRY 
+		WHERE PEOPLE_ID = #{peopleId}
+		ORDER BY INQUIRY_NUMBER desc
+	</select>
+	
+	<select id="getPersonalInquiryCnt" resultType="Integer">
+		SELECT COUNT(*) AS cnt FROM INQUIRY WHERE PEOPLE_ID = #{peopleId}
+	</select>
+	
+	<select id="getInquiry" parameterType="map" resultType="Talan.DTO.InquiryDTO">
+		SELECT * FROM INQUIRY WHERE INQUIRY_NUMBER = #{inquiryNumber}
+	</select>
+	
+	<update id="updateInquiry">
+		UPDATE INQUIRY
+		SET INQUIRY_TITLE = #{inquiryTitle},
+		INQUIRY_CONTENT = #{inquiryContent},
+		INQUIRY_MODIFY_DATE = SYSDATE
+		WHERE INQUIRY_NUMBER = #{inquiryNumber} AND
+		PEOPLE_ID = #{peopleId} AND RESPONSE_STATUS = 0
+	</update>
+	
+	<update id="setInquiryStatus">
+		UPDATE INQUIRY
+		SET RESPONSE_STATUS = 1
+		WHERE INQUIRY_NUMBER = #{inquiryNumber}
+	</update>
+	
+	<delete id="deleteInquiryAdmin">
+		DELETE FROM INQUIRY WHERE INQUIRY_NUMBER = #{inquiryNumber}
+	</delete>
+	
+	<delete id="deleteInquiry">
+		DELETE FROM INQUIRY WHERE INQUIRY_NUMBER = #{inquiryNumber} AND PEOPLE_ID = #{peopleId}
+	</delete>
+</mapper>

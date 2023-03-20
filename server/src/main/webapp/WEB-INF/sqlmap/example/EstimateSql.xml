@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+        <!DOCTYPE mapper
+                PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+                "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="estimate">
+	
+	<sql id="setEstimateNumber" >
+		SELECT CONCAT('ESTIMATE',
+		NVL(MAX(SUBSTR(ESTIMATE_NUMBER,9)),100000)+ 1) FROM ESTIMATE
+	</sql>
+	
+	<select id="getLastEstimateNumber" resultType="String">
+		SELECT MAX(ESTIMATE_NUMBER) FROM ESTIMATE
+	</select>
+	
+	<insert id="registEstimate">
+		INSERT INTO ESTIMATE (ESTIMATE_NUMBER, PRO_ID, PREDICT_TIME, QUOTE_PRICE, ESTIMATE_TITLE, ESTIMATE_CONTENT, ESTIMATE_REGISTER_DATE, ESTIMATE_STATUS, REQUEST_NUMBER)
+		VALUES
+		( (<include refid="setEstimateNumber"/>), #{proId}, #{predictTime}, #{quotePrice}, #{estimateTitle}, #{estimateContent}, SYSDATE, 0, #{requestNumber} )
+	</insert>
+	
+	<select id="getEstimateList" parameterType="map" resultType="Talan.DTO.EstimateListDTO">
+		SELECT NICKNAME, STORE_IMAGE_NAME, ORIGIN_IMAGE_NAME, IMAGE_PATH,
+	    	   E.REQUEST_NUMBER, CATEGORY, ESTIMATE_NUMBER, PRO_ID, PREDICT_TIME, QUOTE_PRICE, ESTIMATE_TITLE, ESTIMATE_CONTENT,
+	    	   ESTIMATE_REGISTER_DATE, ESTIMATE_STATUS
+		FROM (SELECT PEOPLE_ID, NICKNAME, STORE_IMAGE_NAME, ORIGIN_IMAGE_NAME, IMAGE_PATH FROM PEOPLE) P, 
+    		 (SELECT REQUEST_NUMBER, CATEGORY FROM REQUEST) R,
+    		 (SELECT * FROM ESTIMATE) E
+		WHERE E.REQUEST_NUMBER = R.REQUEST_NUMBER 
+		AND P.PEOPLE_ID = E.PRO_ID
+		AND E.REQUEST_NUMBER = #{requestNumber}
+	</select>
+	
+	<select id="getEstimateMyList" parameterType="map" resultType="Talan.DTO.EstimateDTO">
+		SELECT * FROM ESTIMATE WHERE PRO_ID = #{proId} ORDER BY ESTIMATE_NUMBER DESC
+	</select>
+	
+	<update id="setEstimateMatched">
+		UPDATE ESTIMATE
+		SET ESTIMATE_STATUS = 1
+		WHERE ESTIMATE_NUMBER = #{estimateNumber}
+	</update>
+	
+	<update id="setEstimateReject">
+		UPDATE ESTIMATE
+		SET ESTIMATE_STATUS = 2
+		WHERE ESTIMATE_NUMBER = #{estimateNumber}
+	</update>
+	
+	<select id="getEstimate" parameterType="map" resultType="Talan.DTO.EstimateDTO">
+		SELECT * FROM ESTIMATE WHERE ESTIMATE_NUMBER = #{estimateNumber}
+	</select>
+	
+	<delete id="deleteEstimate">
+		DELETE FROM ESTIMATE
+		WHERE PRO_ID = #{id}
+	</delete>
+	
+</mapper>

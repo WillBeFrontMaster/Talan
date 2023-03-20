@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0,user-scalable=false, viewport-fit=cover">
+    <title>TALAN</title>
+    <link rel="stylesheet" href="../../css/morpheus-style.css"/>
+    <link rel="stylesheet" href="../../css/swiper.min.css"/>
+    <link rel="stylesheet" href="../../css/muikit.css"/>
+</head>
+<body>
+<div class="wrapper">
+    <header class="header line">
+        <!-- 헤더 입력 영역 (헤더 디자인에 따라 바꿔치기 가능) -->
+        <!-- 하단에 라인이 있는경우 class="line"추가 -->
+        <h1>
+            <span id="people-id">소담</span>님의 요청서
+        </h1>
+        <button type="button" class="btn-menu r-fix">
+            메뉴
+            <!-- 왼쪽 버튼 class="l-fix" 추가 -->
+            <!-- 오른쪽 버튼 class="r-fix" 추가 -->
+        </button>
+
+        <button type="button" class="btn-back l-fix">
+            뒤로가기
+        </button>
+    </header>
+    <!-- 상단바 -->
+        <table class="tbl-ipt">
+            <colgroup>
+                <col style="width:30%"/>
+                <col style="width:70%"/>
+            </colgroup>
+            <tr>
+                <th>카 테 고 리</th>
+                <td><input type="text" class="full" id="category" value="레슨" readonly="readonly"></td>
+            </tr>
+            <tr>
+                <th>일 시</th>
+                <td><input type="text" class="full" id="date" value="2022.04.12" readonly="readonly"></td>
+            </tr>
+            <tr>
+                <th>제 목</th>
+                <td><input type="text" class="full" id="title" value="방송댄스 배우고 싶어요" readonly="readonly"></td>
+            </tr>
+            <tr>
+                <th>내 용</th>
+                <td><textarea class="full report-textarea" id="content" readonly="readonly">
+춤을 한 번도 춰본 적이 없어서 기초부터 배워야 할 것 같습니다. 장소 제공이 가능했으면 좋겠고 근처에서 진행 했으면 좋겠어요. CityPop 장르를 배우고 싶어요.
+                </textarea></td>
+            </tr>
+            <tr>
+                <th>우 대 사 항</th>
+                <td><input type="text" class="full" id="preference" value="근처 지역 / 장소 제공 가능" readonly="readonly"></td>
+            </tr>
+            <tr>
+                <th>지 역</th>
+                <td><input type="text" class="full" id ="address" value="서울특별시 금천구" readonly="readonly"></td>
+            </tr>
+            <tr>
+                <th>업 무 강 도</th>
+                <td><input type="text" class="full" id="work-intense" value="7" readonly="readonly"></td>
+            </tr>
+        </table>
+</div>
+<!-- 하단바 -->
+<div class="footer">
+    <!--pro만 보이게-->
+    <div class="btn-wrap count2 pd" style="display:none">
+        <button type="button" class="btn-line" id="write-btn">
+            견적서 작성하기
+        </button>
+    </div>
+</div>
+</body>
+<script type="text/javascript" src="../../js/mcore.min.js"></script>
+<!-- 뒤로가기 홈버튼 등 기본 동작에 대한 js 파일-->
+<script type="text/javascript" src="../../js/ui/common.event.js"></script>
+<script type="text/javascript" src="../../js/ui/people/requestDetail.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<!-- 페이지마다 만든 js 파일 여기에 추가해주기-->
+</html>

@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0,user-scalable=false, viewport-fit=cover">
+	<title>TALAN</title>
+	<link rel="stylesheet" href="../../css/morpheus-style.css" />
+	<link rel="stylesheet" href="../../css/swiper.min.css" />
+	<link rel="stylesheet" href="../../css/muikit.css" />
+</head>
+
+<body>
+	<header class="header line">
+		<!-- 헤더 입력 영역 (헤더 디자인에 따라 바꿔치기 가능) -->
+		<!-- 하단에 라인이 있는경우 class="line"추가 -->
+		<h1>
+			회원가입
+		</h1>
+		<button type="button" class="btn-back l-fix">
+			뒤로가기
+		</button>
+	</header>
+		<div class="cont-wrap pd">
+			<div class="info-wrap">
+				<h2 class="sub-tit">
+					본인인증
+				</h2>
+				<div class="step">
+					<ul>
+						<li class="ok">
+							1
+							<!-- class="on"추가:해당 단계 / class="ok"추가:완료 단계 -->
+						</li>
+						<li class="on">
+							2
+						</li>
+						<li>
+							3
+						</li>
+					</ul>
+				</div>
+				<div class="logo none">
+					<img src="../../img/logo-header.png" alt="Education" />
+				</div>
+			</div>
+			<div class="ipt-wrap">
+				<div class="ipt-form-type1">
+					<span>
+						이름
+					</span>
+					<div class="ipt-form-col">
+						<input type="text" id="user-name" class="full" placeholder="실명 입력"/>
+					</div>
+				</div>
+				<div class="ipt-form-gender">
+					<span>
+						성별
+					</span>
+					<div class="ipt-form-row">
+						<input type="radio" name="gender" id="man" value="M" />
+						<label for="man" class="gender">
+							남자
+						</label>
+						<input type="radio" name="gender" id="woman" value="F" />
+						<label for="woman" class="gender">
+							여자
+						</label>
+					</div>
+				</div>
+				<div class="ipt-form-birth">
+					<span>
+						생년월일
+					</span>
+					<div class="ipt-form-row">
+						<input type="number" id="year" data-date-format="YYYY" placeholder="년" maxlength="4" />
+						<input type="number" id="month" data-date-format="MM" placeholder="월" maxlength="2" />
+						<input type="number" id="date" data-date-format="DD" placeholder="일" maxlength="2" />
+					</div>
+				</div>
+				<div class="ipt-form-type1">
+					<span>
+						휴대폰 번호(숫자만)
+					</span>
+					<div class="ipt-form-col">
+						<input type="number" id="cell-phone" pattern="[^0-9]" maxlength="11" class="full"
+							placeholder="예)01022334455" />
+					</div>
+				</div>
+				<div class="ipt-form-type2">
+					<span>
+						아이디/비밀번호
+					</span>
+					<div class="ipt-form-row">
+						<input type="text" id="login-id" placeholder="아이디 입력(최소 5자 이상의 영문 또는 숫자)" />
+						<button type="button" id="dup-btn1" class="btn-line">
+							중복확인
+						</button>
+					</div>
+					<div class="ipt-form-col">
+						<input type="password" class="full" id="password" placeholder="패스워드 입력(8-20자, 영문 대/소문자, 숫자, 특수문자 한 개 이상 필수)" />
+						<input type="password" class="full" id="repassword" placeholder="패스워드 확인" />
+					</div>
+				</div>
+				<div class="ipt-form-type2">
+					<span>
+						E-MAIL
+					</span>
+					<div class="ipt-form-row">
+						<input type="text" id="email" placeholder="예)talan@talan.co.kr" />
+						<button type="button" id="dup-btn2" class="btn-line">
+							중복확인
+						</button>
+					</div>
+				</div>
+				<div class="ipt-form-type1">
+					<span>
+						주소
+					</span>
+					<div class="ipt-form-col">
+						<select class="select-box" id ="sido" name="sido">
+							<option value="시도">시/도</option>
+						</select>
+						<select class="select-box" name="sigungu" id="sigungu">
+							<option>시/군/구</option>
+						</select>
+					</div>
+				</div>
+				<div class="ipt-form-type1">
+					<span>
+						계좌번호
+					</span>
+					<div class="ipt-form-col">
+						<input type="text" id="account" class="full" placeholder="계좌번호" />
+					</div>
+				</div>
+				<div class="ipt-form-type2">
+					<span>
+						닉네임
+					</span>
+					<div class="ipt-form-row">
+						<input type="text" id="nickname" placeholder="닉네임 입력" />
+						<button type="button" id="dup-btn3" class="btn-line">
+							중복확인
+						</button>
+					</div>
+				</div>
+				<div class="ipt-form-type1">
+					<span>
+						소개
+					</span>
+					<div class="ipt-form-col">
+						<input type="text" id="introduce" placeholder="한 줄 소개" class="full"/>
+					</div>
+				</div>
+				<div class="ipt-form-type2">
+					<span>
+						프로필 사진
+					</span>
+					<div class="ipt-form-row">
+						<input type="text" id="img-name" readonly placeholder="이미지 파일명 (자동입력)" />
+						<button type="button" id="img-btn" class="btn-line">
+							이미지 선택
+						</button>
+					</div>
+					<div class="ipt-form-col">
+						<img src="" />
+					</div>
+				</div>
+			</div>
+			<div class="btn-wrap pd">
+				<button type="button" id="join-btn" class="btn-point-color">
+					가입하기
+				</button>
+			</div>
+		</div>
+</body>
+
+<script type="text/javascript" src="../../js/mcore.min.js"></script>
+<!-- 뒤로가기 홈버튼 등 기본 동작에 대한 js 파일-->
+<script type="text/javascript" src="../../js/ui/common.event.js"></script>
+<script type="text/javascript" src="../../js/common/util.js"></script>
+<script type="text/javascript" src="../../js/common/jquery.plugin.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script type="text/javascript" src="../../js/ui/member/join2.js"></script>
+<script></script>
+
+</html>

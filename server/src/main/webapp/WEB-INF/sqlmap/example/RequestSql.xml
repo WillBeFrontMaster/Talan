@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+        <!DOCTYPE mapper
+                PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+                "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="request">
+	
+	<sql id="setRequestNumber" >
+		SELECT CONCAT('REQUEST',
+		NVL(MAX(SUBSTR(REQUEST_NUMBER,8)),100000)+ 1) FROM REQUEST
+	</sql>
+	
+	<insert id="registRequest">
+		INSERT INTO REQUEST
+		VALUES
+		( (<include refid="setRequestNumber"/>), #{peopleId}, #{category}, #{requestDate}, #{requestTitle}, #{requestContent}, #{preference}, SYSDATE, 0, #{town}, #{district}, #{taskLevel} )
+	</insert>
+	
+	<select id="getRequestInfo" resultType="Talan.DTO.RequestDTO">
+		SELECT * FROM REQUEST WHERE REQUEST_NUMBER = #{requestNumber}
+	</select>
+	
+	<select id="getLastRequestNumber" resultType="String">
+		SELECT MAX(REQUEST_NUMBER) FROM REQUEST
+	</select>
+	
+	<select id="getSearchLastRequestNumber" parameterType="map" resultType="String">
+		SELECT REQUEST_NUMBER 
+		FROM (SELECT REQUEST_NUMBER, ROWNUM, TOWN, DISTRICT, CATEGORY FROM REQUEST ORDER BY REQUEST_NUMBER DESC)
+		<if test="town != '전체' and district != '전체' and category != '전체'">
+        WHERE ROWNUM = 1 AND TOWN = #{town} AND DISTRICT = #{district} AND CATEGORY = #{category}
+        </if>
+        <if test="town != '전체' and district != '전체' and category == '전체'">
+        WHERE ROWNUM = 1 AND TOWN = #{town} AND DISTRICT = #{district}
+        </if>
+        <if test="town == '전체' and district == '전체' and category != '전체'">
+        WHERE ROWNUM = 1 AND CATEGORY = #{category}
+        </if>
+	</select>
+
+	<select id="getRequestMyList" parameterType="map" resultType="Talan.DTO.RequestDTO">
+		SELECT * FROM REQUEST WHERE PEOPLE_ID = #{peopleId}
+	</select>
+	
+	<select id="getRequestSearchList" parameterType="map" resultType="Talan.DTO.RequestDTO">
+		SELECT REQUEST_NUMBER, PEOPLE_ID, CATEGORY, REQUEST_DATE, REQUEST_TITLE, REQUEST_CONTENT, PREFERENCE, REQUEST_REGISTER_DATE, REQUEST_STATUS,
+        TOWN, DISTRICT, TASK_LEVEL
+		FROM
+		(
+		SELECT REQUEST_NUMBER, PEOPLE_ID, CATEGORY, REQUEST_DATE, REQUEST_TITLE, REQUEST_CONTENT, PREFERENCE, REQUEST_REGISTER_DATE, REQUEST_STATUS,
+        TOWN, DISTRICT, TASK_LEVEL
+		FROM
+		(
+		SELECT ROWNUM, REQUEST_NUMBER, PEOPLE_ID, CATEGORY, REQUEST_DATE, REQUEST_TITLE, REQUEST_CONTENT, PREFERENCE, REQUEST_REGISTER_DATE, REQUEST_STATUS,
+        TOWN, DISTRICT, TASK_LEVEL
+		FROM
+		(
+		SELECT *
+		FROM REQUEST
+		ORDER BY REQUEST_NUMBER DESC
+		)
+		<if test="town != '전체' and district != '전체' and category != '전체'">
+        WHERE TOWN = #{town} AND DISTRICT = #{district} AND CATEGORY = #{category}
+        </if>
+        <if test="town != '전체' and district != '전체' and category == '전체'">
+        WHERE TOWN = #{town} AND DISTRICT = #{district}
+        </if>
+        <if test="town == '전체' and district == '전체' and category != '전체'">
+        WHERE CATEGORY = #{category}
+        </if>
+		)
+		<![CDATA[
+		WHERE REQUEST_NUMBER <= #{lastRequestNumber}
+		)
+		WHERE ROWNUM <= #{cnt}
+		]]>
+	</select>
+	
+	<select id="getRequestCnt" resultType="Integer">
+		SELECT COUNT(*) AS cnt FROM REQUEST
+	</select>
+	
+	<select id="getRequestSearchCnt" parameterType="map" resultType="Integer">
+		SELECT COUNT(*) AS cnt FROM REQUEST 
+		<if test="town != '전체' and district != '전체' and category != '전체'">
+        WHERE TOWN = #{town} AND DISTRICT = #{district} AND CATEGORY = #{category}
+        </if>
+        <if test="town != '전체' and district != '전체' and category == '전체'">
+        WHERE TOWN = #{town} AND DISTRICT = #{district}
+        </if>
+        <if test="town == '전체' and district == '전체' and category != '전체'">
+        WHERE CATEGORY = #{category}
+        </if>
+	</select>
+	
+	<update id="setRequestClosed" parameterType="map">
+		UPDATE REQUEST
+		SET REQUEST_STATUS = 1
+		WHERE REQUEST_NUMBER = #{requestNumber}
+	</update>
+	
+	<select id="getRequest" parameterType="map" resultType="Talan.DTO.RequestDTO">
+		SELECT * FROM REQUEST WHERE REQUEST_NUMBER = #{requestNumber}
+	</select>
+	
+	<delete id="deleteRequest">
+		DELETE FROM REQUEST WHERE REQUEST_NUMBER = #{requestNumber}
+	</delete>
+	
+	<delete id="deleteRequestOutPeople">
+		DELETE FROM REQUEST WHERE PEOPLE_ID = #{peopleId}
+	</delete>
+	
+</mapper>

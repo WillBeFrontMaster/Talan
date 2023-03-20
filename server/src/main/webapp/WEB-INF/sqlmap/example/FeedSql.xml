@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+        <!DOCTYPE mapper
+                PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+                "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="feed">
+
+	<sql id="setFeedNumber">
+		SELECT CONCAT('FEED',
+		NVL(MAX(SUBSTR(FEED_NUMBER,5)),100000)+ 1) FROM FEED
+	</sql>
+
+	<select id="getFeedNumber" resultType="String">
+		SELECT FEED_NUMBER FROM
+		FEED WHERE PRO_ID = #{proId}
+	</select>
+
+	<insert id="registFeed">
+		INSERT INTO FEED( FEED_NUMBER, PRO_ID, FEED_TITLE, FEED_CONTENT, FEED_WRITER_NICKNAME)
+		VALUES
+		((<include refid="setFeedNumber"/>), #{proId},
+		#{feedTitle}, #{feedContent}, #{feedWriterNickname} )
+	</insert>
+	
+	<insert id="registFeedWithImage">
+		INSERT INTO FEED( FEED_NUMBER, PRO_ID, FEED_TITLE, FEED_CONTENT, FEED_WRITER_NICKNAME, STORE_FILE_NAME, ORIGIN_FILE_NAME, FILE_PATH )
+		VALUES
+		((<include refid="setFeedNumber"/>), #{proId},
+		#{feedTitle}, #{feedContent}, #{feedWriterNickname}, #{storeFileName}, #{originFileName}, #{filePath} )
+	</insert>
+
+	<update id="updateFeed">
+		UPDATE FEED
+		SET FEED_TITLE = #{feedTitle},
+		FEED_CONTENT = #{feedContent},
+		FEED_REGISTER_DATE = SYSDATE
+		WHERE FEED_NUMBER = #{feedNumber} AND
+		PRO_ID = #{proId}
+	</update>
+	
+	<update id="updateFeedWithImage">
+		UPDATE FEED
+		SET FEED_TITLE = #{feedTitle},
+		FEED_CONTENT = #{feedContent},
+		FEED_REGISTER_DATE = SYSDATE,
+		STORE_FILE_NAME = #{storeFileName},
+		ORIGIN_FILE_NAME = #{originFileName},
+		FILE_PATH = #{filePath}
+		WHERE FEED_NUMBER = #{feedNumber} AND
+		PRO_ID = #{proId}
+	</update>
+
+	<select id="getFeed" parameterType="map" resultType="Talan.DTO.FeedDTO">
+		SELECT * FROM FEED WHERE FEED_NUMBER = #{feedNumber}
+	</select>
+
+	<delete id="deleteFeed">
+		DELETE FROM FEED WHERE FEED_NUMBER = #{feedNumber}
+		AND PRO_ID = #{proId}
+	</delete>
+	
+	<delete id="adminDeleteFeed">
+		DELETE FROM FEED WHERE FEED_NUMBER = #{feedNumber}
+	</delete>
+	
+	<delete id="deleteFeedComments">
+		DELETE FROM FEED_COMMENTS WHERE FEED_NUMBER = #{feedNumber}
+	</delete>
+	
+	<select id="getLastFeedNumber" resultType="String">
+		SELECT FEED_NUMBER FROM (SELECT FEED_NUMBER, ROWNUM FROM FEED ORDER BY FEED_NUMBER DESC) WHERE ROWNUM = 1
+	</select>
+
+	<select id="getFeedList" parameterType="map" resultType="Talan.DTO.FeedDTO">
+	<![CDATA[
+		SELECT FEED_NUMBER, FEED_TITLE, FEED_CONTENT, FEED_REGISTER_DATE, PRO_ID,
+		FEED_WRITER_NICKNAME, STORE_FILE_NAME, ORIGIN_FILE_NAME, FILE_PATH
+		FROM 
+		(
+		SELECT FEED_NUMBER, FEED_TITLE, FEED_CONTENT, FEED_REGISTER_DATE, PRO_ID,
+		FEED_WRITER_NICKNAME, STORE_FILE_NAME, ORIGIN_FILE_NAME, FILE_PATH
+		FROM
+		(
+		SELECT ROWNUM, FEED_NUMBER, FEED_TITLE, FEED_CONTENT,
+		FEED_REGISTER_DATE, PRO_ID, FEED_WRITER_NICKNAME, STORE_FILE_NAME, ORIGIN_FILE_NAME, FILE_PATH
+		FROM
+		(
+		SELECT *
+		FROM FEED
+		ORDER BY FEED_NUMBER DESC
+		)
+		)
+		WHERE FEED_NUMBER <= #{lastFeedNumber}
+		)
+		WHERE ROWNUM <= #{cnt}
+		]]>
+	</select>
+	
+	<select id="getFeedCnt" resultType="Integer">
+		SELECT COUNT(*) AS cnt FROM FEED
+	</select>
+	
+	<select id="getFeedProList" parameterType="map" resultType="Talan.DTO.FeedDTO">
+		SELECT *
+		FROM FEED 
+		WHERE PRO_ID = #{proId}
+		ORDER BY FEED_NUMBER desc
+	</select>
+	
+	<select id="getFeedProCnt" resultType="Integer">
+		SELECT COUNT(*) AS cnt FROM FEED WHERE PRO_ID = #{proId}
+	</select>
+</mapper>

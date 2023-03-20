@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0,user-scalable=false, viewport-fit=cover">
+    <title>TALAN</title>
+    <link rel="stylesheet" href="../../css/morpheus-style.css" />
+    <link rel="stylesheet" href="../../css/swiper.min.css" />
+    <link rel="stylesheet" href="../../css/muikit.css" />
+</head>
+
+<body>
+
+    <header class="header ">
+        <!-- 헤더 입력 영역 (헤더 디자인에 따라 바꿔치기 가능) -->
+        <!-- 하단에 라인이 있는경우 class="line"추가 -->
+        <h1 class="line">
+            내 정보 조회
+        </h1>
+        <button type="button" class="btn-back l-fix">
+            뒤로가기
+        </button>
+        </div>
+    </header>
+
+    <!-- 상단바 -->
+    <div class="container">
+        <div class="aa">
+            <div class="title">
+                내 정보
+            </div>
+            <ul class="page-list">
+                <li class="item-container">
+                    <div class="item">
+                        <div class="item-title">이름</div>
+                        <div class="item-info" id="name">김소담</div>
+                    </div>
+                </li>
+                <li class="item-container">
+                    <div class="item">
+                        <div class="item-title">닉네임</div>
+                        <div class="item-info" id="nickname">일억이</div>
+                    </div>
+                </li>
+                <li class="item-container">
+                    <div class="item">
+                        <div class="item-title">생년월일</div>
+                        <div class="item-info" id="birth"><span>1998-04-03</span></div>
+                    </div>
+                </li>
+                <li class="item-container">
+                    <div class="item">
+                        <div class="item-title">주소</div>
+                        <div class="item-info" id="address">인천광역시 남동구</div>
+                    </div>
+                </li>
+                <li class="item-container">
+                    <div class="item">
+                        <div class="item-title">이메일</div>
+                        <div class="item-info" id="email">sodam@test.com</div>
+                    </div>
+                </li>
+                <li class="item-container">
+                    <div class="item">
+                        <div class="item-title">연락처</div>
+                        <div class="item-info" id="phone">01012341234</div>
+                    </div>
+                </li>
+                <div class="btn-wrap">
+                    <button type="button" id="modify-info" class="btn-point-color">
+                        정보 수정
+                    </button>
+                </div>
+                <div class="btn-wrap">
+                    <button type="button" id="change-password" class="btn-point-color">
+                        비밀번호 변경
+                    </button>
+                </div>
+                <div class="btn-wrap">
+                    <button type="button" id="delete-member" class="btn-line-04">
+                        계정 탈퇴
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </div> 
+
+</body>
+<script type="text/javascript" src="../../js/mcore.min.js"></script>
+<!-- 뒤로가기 홈버튼 등 기본 동작에 대한 js 파일-->
+<script type="text/javascript" src="../../js/ui/common.event.js"></script>
+<script type="text/javascript" src="../../js/ui/member/viewInfo.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</html>

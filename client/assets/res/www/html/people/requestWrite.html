@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0,user-scalable=false, viewport-fit=cover">
+    <title>TALAN</title>
+    <link rel="stylesheet" href="../../css/morpheus-style.css"/>
+    <link rel="stylesheet" href="../../css/swiper.min.css"/>
+    <link rel="stylesheet" href="../../css/muikit.css"/>
+</head>
+<body>
+<div class="wrapper">
+    <header class="header line">
+        <!-- 헤더 입력 영역 (헤더 디자인에 따라 바꿔치기 가능) -->
+        <!-- 하단에 라인이 있는경우 class="line"추가 -->
+        <h1>
+            요청서 작성
+        </h1>
+
+
+        <button type="button" class="btn-back l-fix">
+            뒤로가기
+        </button>
+    </header>
+    <!-- 상단바 -->
+    <div class="wrapper">
+        <table class="tbl-ipt">
+            <colgroup>
+                <col style="width:30%"/>
+                <col style="width:70%"/>
+            </colgroup>
+            <tr>
+                <td>카테고리</td>
+                <td><select name="category" id="category">
+                    <option selected>선택</option>
+                    <option value="lesson">레슨</option>
+                    <option value="home">홈/리빙</option>
+                    <option value="event">이벤트</option>
+                    <option value="business">비즈니스</option>
+                    <option value="design">디자인/개발</option>
+                    <option value="health">건강/미용</option>
+                    <option value="part-time-job">알바</option>
+                    <option value="etc">기타</option>
+                </select></td>
+            </tr>
+            <tr>
+                <td>일시</td>
+                <td><input type="date" id="operation-date"></td>
+            </tr>
+            <tr>
+                <td>제목</td>
+                <td><input type="text" class="full" id="subject"></td>
+            </tr>
+            <tr>
+                <td>내용</td>
+                <td><textarea class="full report-textarea" id="content"></textarea></td>
+            </tr>
+            <tr>
+                <td>우대사항</td>
+                <td><input type="text" class="full" id="preferential-treatment"></td>
+            </tr>
+            <tr>
+                <td>지역</td>
+                <td><select id="city">
+                    <option value="시도">시도</option>
+                </select><select id="country">
+                    <option>시군구</option>
+                </select></td>
+            </tr>
+            <tr>
+                <td>업무강도</td>
+                <td><input type="range" list="tickmarks" step="1" min="0" max="10" id="work-intensity">
+                    <datalist id="tickmarks">
+                        <option value="0" label="0"></option>
+                        <option value="1"></option>
+                        <option value="2"></option>
+                        <option value="3"></option>
+                        <option value="4"></option>
+                        <option value="5" label="5"></option>
+                        <option value="6"></option>
+                        <option value="7"></option>
+                        <option value="8"></option>
+                        <option value="9"></option>
+                        <option value="10" label="10"></option>
+                    </datalist>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+<!-- 하단바 -->
+<div class="footer">
+
+    <div class="btn-wrap count2 pd">
+        <button type="button" id="write" class="btn-point-color">
+            작성하기
+        </button>
+        <button type="button" id="cancel" class="btn-line">
+            취소하기
+        </button>
+    </div>
+</div>
+</body>
+<script type="text/javascript" src="../../js/mcore.min.js"></script>
+<!-- 뒤로가기 홈버튼 등 기본 동작에 대한 js 파일-->
+<script type="text/javascript" src="../../js/ui/common.event.js"></script>
+<!-- 페이지마다 만든 js 파일 여기에 추가해주기-->
+<script type="text/javascript" src="../../js/ui/people/requestWrite.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0,user-scalable=false, viewport-fit=cover">
+    <title>TALAN</title>
+    <link rel="stylesheet" href="../../css/morpheus-style.css"/>
+    <link rel="stylesheet" href="../../css/swiper.min.css"/>
+    <link rel="stylesheet" href="../../css/muikit.css"/>
+</head>
+<body>
+<div class="wrapper">
+    <header class="header line">
+        <!-- 헤더 입력 영역 (헤더 디자인에 따라 바꿔치기 가능) -->
+        <!-- 하단에 라인이 있는경우 class="line"추가 -->
+        <h1>
+            신고
+        </h1>
+
+        <button type="button" class="btn-back l-fix">
+            뒤로가기
+        </button>
+    </header>
+    <!-- 상단바 -->
+    <div class="container">
+        <!-- 헤더 입력 영역 (헤더 디자인에 따라 바꿔치기 가능) -->
+        <div class="cont-wrap">
+            <!-- 태블릿에서 볼때 왼쪽에 정렬될 내용 -->
+            <div>
+                <table class="tbl-ipt">
+                    <colgroup>
+                        <col style="width:30%"/>
+                        <col style="width:70%"/>
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <th>
+                                신 고 번 호
+                            </th>
+                            <td>
+                                <input type="text" disabled id="reportNumber" class="full"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                신 고 자
+                            </th>
+                            <td>
+                                <input type="text" disabled id="reportPeople" class="full"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th class="required">
+                                신 고 대 상
+                            </th>
+                            <td>
+                                <input type="text" readonly="readonly" id="reportTarget" class="full"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                신 고 사 항
+                            </th>
+                            <td>
+                                <input type="text" value="개인 정보 노출" readonly="readonly" id="reportCode" class="full"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                내 용
+                            </th>
+                            <td>
+                                <textarea id="content" class="full report-textarea">
+퇴근하고싶은데 아직 5시37분이에요. 시간이 이상하게 느리게 가는 거 같아서 신고합니다.
+                                </textarea>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+           
+        </div>
+        
+    </div>
+
+    <!-- 하단바 -->
+</div>
+<div class="footer">
+    <!-- 푸터 영역 (푸터 디자인에 따라 바꿔치기 가능) -->
+
+        <div class="btn-wrap count2 pd">
+            <!--신고대상 회원 추방-->
+            <button type="button" id="approval" class="btn-point-color">
+                승인하기
+            </button>
+            <button type="button" id="reject" class="btn-line">
+                반려하기
+            </button>
+        </div>
+</div>
+</body>
+<script type="text/javascript" src="../../js/mcore.min.js"></script>
+<!-- 뒤로가기 홈버튼 등 기본 동작에 대한 js 파일-->
+<script type="text/javascript" src="../../js/ui/common.event.js"></script>
+<!-- 페이지마다 만든 js 파일 여기에 추가해주기-->
+<script type="text/javascript" src="../../js/ui/admin/reportDetail.js"></script>
+</html>

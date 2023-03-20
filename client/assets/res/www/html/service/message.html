@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, height=device-height, initial-scale=1.0,user-scalable=false, viewport-fit=cover">
+    <title>TALAN</title>
+    <link rel="stylesheet" href="../../css/morpheus-style.css"/>
+    <link rel="stylesheet" href="../../css/swiper.min.css"/>
+    <link rel="stylesheet" href="../../css/muikit.css"/>
+</head>
+
+<body>
+<div class="chat-wrapper">
+    <header class="header line">
+        <!-- 헤더 입력 영역 (헤더 디자인에 따라 바꿔치기 가능) -->
+        <!-- 하단에 라인이 있는경우 class="line"추가 -->
+        <h1>
+            <span id="adversary">심고수</span>
+        </h1>
+
+        <button type="button" class="btn-back l-fix">
+            뒤로가기
+        </button>
+    </header>
+    <!-- 상단바 -->
+    <!--텍스트 센터로-->
+    <div class="chat-room">
+        <div class="button-area">
+            <p>
+                <!--고수정보 페이지로 이동-->
+                <button type="button" id="pro-info" class="chat-btn paymentBtn">정보보기</button>
+                <!--신고하기 이동-->
+                <button type="button" id="report" class="chat-btn informBtn">신고하기</button>
+            </p>
+        </div>
+        <section class="chat-section">
+            <!--메시지 상단-->
+            <div class="divider-section chattings" id="chatting">
+                <div class="chat-room-messages">
+                    <div class="chat-date">2022년 03월 31일</div>
+                </div>
+            </div>
+
+            <div class="chat-footer">
+                <ul class="chat-foot-menu-wrap">
+                    <div class="chat-room-inputs">
+                        <!--메시지 입력창-->
+                        <form name="chatform" action="#" method="post">
+                            <textarea name="chat-insert" id="chat-insert" rows="1"></textarea>
+                            <button type="button" id="submit" class="chat-submit">전송</button>
+                        </form>
+                    </div>
+                </ul>
+            </div>
+        </section>
+    </div>
+</div>
+
+
+<!--
+<div class="footer">
+    푸터 영역 (푸터 디자인에 따라 바꿔치기 가능)
+    <ul class="foot-menu-wrap">
+        <input type="text" placeholder="메시지를 입력하세요." />
+        <input type="submit" value="전송" />
+    </ul>
+</div> -->
+
+</body>
+<script type="text/javascript" src="../../js/mcore.min.js"></script>
+<!-- 뒤로가기 홈버튼 등 기본 동작에 대한 js 파일-->
+<script type="text/javascript" src="../../js/ui/common.event.js"></script>
+<!-- 페이지마다 만든 js 파일 여기에 추가해주기-->
+<script type="text/javascript" src="../../js/ui/service/message.js"></script>
+</html>

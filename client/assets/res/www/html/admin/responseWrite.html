@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0,user-scalable=false, viewport-fit=cover">
+    <title>TALAN</title>
+    <link rel="stylesheet" href="../../css/morpheus-style.css"/>
+    <link rel="stylesheet" href="../../css/swiper.min.css"/>
+    <link rel="stylesheet" href="../../css/muikit.css"/>
+</head>
+<body>
+<div class="wrapper">
+    <header class="header line">
+        <!-- 헤더 입력 영역 (헤더 디자인에 따라 바꿔치기 가능) -->
+        <!-- 하단에 라인이 있는경우 class="line"추가 -->
+        <h1 class>
+            답변 작성
+        </h1>
+
+        <button type="button" class="btn-back l-fix">
+            뒤로가기
+        </button>
+    </header>
+    <!-- 상단바 -->
+    <div class="container">
+        <!-- 헤더 입력 영역 (헤더 디자인에 따라 바꿔치기 가능) -->
+        <div class="cont-wrap">
+            <!-- 태블릿에서 볼때 왼쪽에 정렬될 내용 -->
+            <div>
+                <table class="tbl-ipt">
+                    <colgroup>
+                        <col style="width:30%"/>
+                        <col style="width:70%"/>
+                    </colgroup>
+                    
+                    <tbody>
+                        <tr>
+                            <th>
+                                문 의 번 호
+                            </th>
+                            <td>
+                                <input type="text" id="inquiry-number" class="full" readonly/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                제 목
+                            </th>
+                            <td>
+                                <input type="text" id="subject" class="full" value="RE: 문의제목"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                내 용
+                            </th>
+                            <td>
+                                <textarea id="content" class="full response-textarea">문의 내용 그대로 불러와주세요
+
+---------------------
+
+답변답변답변답변답변답변답변답변답변답변답변답변답변답변</textarea>
+                           </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+           
+        </div>
+        
+    </div>
+
+
+</div>
+<!-- 하단바 -->
+<div class="footer">
+    <!-- 푸터 영역 (푸터 디자인에 따라 바꿔치기 가능) -->
+        <div class="btn-wrap count2 pd">
+            <button type="button" class="btn-point-color" id="answer">
+                답변하기
+            </button>
+            <button type="button" class="btn-line" id="cancel">
+                취소하기
+            </button>
+        </div>
+</div>
+</body>
+<script type="text/javascript" src="../../js/mcore.min.js"></script>
+<!-- 뒤로가기 홈버튼 등 기본 동작에 대한 js 파일-->
+<script type="text/javascript" src="../../js/ui/common.event.js"></script>
+<!-- 페이지마다 만든 js 파일 여기에 추가해주기-->
+<script type="text/javascript" src="../../js/ui/admin/responseWrite.js"></script>
+</html>
